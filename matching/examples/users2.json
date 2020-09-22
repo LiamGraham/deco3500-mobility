@@ -4,30 +4,34 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
+          "hip hop",
           "ambient"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "violin"
+          "drums"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "novice"
+        "value": "advanced"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
           "theory",
-          "mixing"
+          "mastering"
         ]
       }
     }
@@ -37,33 +41,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "rock"
+          "ambient",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "violin",
-          "clarinet",
-          "trumpet"
+          "flute"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "advanced"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "mixing"
+          "mastering",
+          "mixing",
+          "performance"
         ]
       }
     }
@@ -73,32 +79,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "rock"
+          "jazz",
+          "ambient"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "violin",
-          "drums"
+          "piano"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "production",
-          "composition"
+          "mastering",
+          "performance",
+          "production"
         ]
       }
     }
@@ -108,32 +117,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
-          "rock"
+          "rock",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "violin",
-          "acoustic guitar"
+          "drums",
+          "bass guitar",
+          "trumpet",
+          "cello",
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "novice"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "composition",
-          "mixing"
+          "theory"
         ]
       }
     }
@@ -143,35 +157,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
           "hip hop",
-          "electronic",
-          "jazz",
-          "funk"
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "violin",
-          "drums",
-          "acoustic guitar"
+          "flute"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "composition",
-          "mastering"
+          "mixing",
+          "performance",
+          "composition"
         ]
       }
     }
@@ -181,35 +195,39 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "metal",
-          "electronic",
-          "funk",
-          "hip hop"
+          "jazz"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
+          "bass guitar",
+          "trumpet",
+          "acoustic guitar",
           "cello",
-          "drums",
-          "trumpet"
+          "flute",
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
+          "mastering",
           "production",
-          "theory",
-          "mastering"
+          "theory"
         ]
       }
     }
@@ -219,33 +237,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
-          "metal",
-          "jazz",
-          "funk"
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
           "flute",
-          "double bass"
+          "cello"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "advanced"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
           "production",
-          "mixing"
+          "mixing",
+          "composition"
         ]
       }
     }
@@ -255,35 +275,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
-          "metal",
-          "electronic",
-          "hip hop"
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
+          "acoustic guitar",
           "electric guitar",
-          "trumpet"
+          "cello",
+          "flute",
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "advanced"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
+          "mastering",
           "performance",
-          "composition"
+          "theory"
         ]
       }
     }
@@ -293,29 +316,39 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "rock"
+          "house",
+          "ambient",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
+          "bass guitar",
+          "piano",
+          "cello",
           "flute",
-          "electric guitar",
-          "bass guitar"
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "advanced"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
+          "theory",
+          "production",
           "mixing"
         ]
       }
@@ -326,32 +359,40 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
+          "jazz",
           "pop",
+          "hip hop",
           "rock"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
+          "bass guitar",
+          "acoustic guitar",
           "trumpet",
-          "violin",
-          "cello",
-          "piano"
+          "flute",
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "composition"
+          "production",
+          "mixing"
         ]
       }
     }
@@ -361,28 +402,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "ambient"
+          "electronic",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "electric guitar"
+          "flute",
+          "violin",
+          "piano",
+          "cello"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "beginner"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory"
+          "theory",
+          "mixing",
+          "production"
         ]
       }
     }
@@ -392,32 +443,41 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "jazz"
+          "jazz",
+          "ambient",
+          "pop",
+          "rock"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "cello",
           "acoustic guitar",
-          "trumpet"
+          "electric guitar",
+          "flute",
+          "clarinet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
           "theory",
-          "performance",
-          "mastering"
+          "production",
+          "performance"
         ]
       }
     }
@@ -427,29 +487,34 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
           "house",
+          "ambient",
+          "hip hop",
           "rock"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "violin"
+          "flute"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
           "performance",
           "mixing"
         ]
@@ -461,35 +526,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
           "house",
-          "metal",
-          "rock"
+          "hip hop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
+          "drums",
+          "trumpet",
+          "acoustic guitar",
           "flute",
-          "clarinet",
-          "double bass",
-          "piano"
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "composition",
-          "mastering"
+          "mastering",
+          "performance"
         ]
       }
     }
@@ -499,28 +567,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "jazz",
-          "ambient"
+          "hip hop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "piano"
+          "flute",
+          "violin",
+          "double bass",
+          "bass guitar"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
+          "theory",
           "production"
         ]
       }
@@ -531,34 +606,34 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "metal",
-          "jazz",
-          "ambient"
+          "rock",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
           "flute",
-          "double bass"
+          "piano"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "beginner"
+        "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "performance",
-          "composition"
+          "theory"
         ]
       }
     }
@@ -568,33 +643,39 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "rock",
-          "ambient"
+          "funk",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "electric guitar",
-          "drums"
+          "drums",
+          "bass guitar",
+          "trumpet",
+          "cello",
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "novice"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "performance",
-          "composition"
+          "mastering",
+          "mixing",
+          "performance"
         ]
       }
     }
@@ -604,32 +685,34 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "metal",
-          "ambient"
+          "ambient",
+          "hip hop",
+          "rock",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "electric guitar",
-          "bass guitar"
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "theory",
           "mixing"
         ]
       }
@@ -640,34 +723,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "ambient",
-          "metal",
-          "rock",
-          "hip hop"
+          "house",
+          "hip hop",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "electric guitar",
-          "clarinet",
-          "acoustic guitar"
+          "piano",
+          "acoustic guitar",
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "performance"
+          "mastering",
+          "production",
+          "composition"
         ]
       }
     }
@@ -677,29 +764,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "rock"
+          "rock",
+          "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "electric guitar",
-          "bass guitar"
+          "bass guitar",
+          "violin",
+          "cello",
+          "electric guitar"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "novice"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production"
+          "mastering",
+          "production",
+          "composition"
         ]
       }
     }
@@ -709,36 +805,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "metal",
-          "electronic",
-          "jazz",
-          "hip hop"
+          "house",
+          "hip hop",
+          "ambient",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
           "flute",
-          "bass guitar",
-          "cello",
-          "trumpet"
+          "piano",
+          "violin"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "production",
-          "performance"
+          "composition"
         ]
       }
     }
@@ -748,35 +845,36 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
           "jazz",
-          "electronic",
-          "rock"
+          "house"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "violin",
-          "clarinet",
-          "electric guitar",
-          "piano"
+          "flute",
+          "bass guitar",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "mixing"
+          "mixing",
+          "production"
         ]
       }
     }
@@ -786,32 +884,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "electronic",
+          "jazz",
           "rock",
-          "funk"
+          "pop",
+          "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "double bass"
+          "electric guitar"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "performance",
-          "mastering"
+          "composition"
         ]
       }
     }
@@ -821,37 +922,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "metal",
-          "electronic",
-          "hip hop",
-          "ambient"
+          "jazz",
+          "hip hop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "trumpet",
+          "cello",
+          "flute",
           "violin",
-          "electric guitar",
-          "double bass",
-          "piano"
+          "clarinet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "performance",
-          "composition",
-          "mastering"
+          "production",
+          "composition"
         ]
       }
     }
@@ -861,32 +963,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "jazz",
-          "ambient"
+          "house",
+          "rock",
+          "ambient",
+          "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "violin",
-          "cello",
-          "drums",
-          "acoustic guitar"
+          "flute",
+          "acoustic guitar",
+          "electric guitar"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mixing"
+          "production"
         ]
       }
     }
@@ -896,29 +1003,36 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "ambient"
+          "pop",
+          "hip hop",
+          "ambient",
+          "rock"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute"
+          "flute",
+          "violin",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "performance",
-          "composition",
           "mastering"
         ]
       }
@@ -929,29 +1043,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "metal"
+          "ambient",
+          "rock",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
+          "flute",
+          "piano",
           "cello"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mastering",
-          "mixing"
+          "theory",
+          "performance"
         ]
       }
     }
@@ -961,32 +1083,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "jazz",
-          "hip hop"
+          "pop",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "clarinet",
-          "drums",
-          "trumpet"
+          "electric guitar",
+          "drums"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
           "theory",
+          "performance",
           "composition"
         ]
       }
@@ -997,38 +1122,40 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
+          "house",
+          "hip hop",
           "metal",
-          "funk",
-          "jazz",
-          "hip hop"
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "cello",
+          "drums",
+          "bass guitar",
           "trumpet",
+          "piano",
           "electric guitar",
-          "clarinet",
-          "acoustic guitar"
+          "violin"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "novice"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "performance",
-          "composition",
-          "mastering"
+          "mixing"
         ]
       }
     }
@@ -1038,31 +1165,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "rock"
+          "house",
+          "funk",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "double bass"
+          "violin",
+          "electric guitar",
+          "cello",
+          "drums"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "novice"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "mastering",
-          "mixing"
+          "production",
+          "composition"
         ]
       }
     }
@@ -1072,30 +1206,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "electronic",
-          "hip hop"
+          "jazz",
+          "ambient",
+          "hip hop",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "acoustic guitar"
+          "bass guitar",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "performance",
-          "mixing"
+          "mixing",
+          "performance"
         ]
       }
     }
@@ -1105,31 +1246,34 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "electronic",
-          "hip hop"
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "drums",
-          "acoustic guitar"
+          "trumpet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "novice"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "mixing"
+          "mastering",
+          "mixing",
+          "composition"
         ]
       }
     }
@@ -1139,34 +1283,36 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "metal",
-          "electronic"
+          "jazz",
+          "ambient",
+          "rock"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
           "flute",
-          "trumpet",
-          "double bass",
-          "acoustic guitar",
-          "piano"
+          "bass guitar",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "beginner"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mastering",
-          "mixing"
+          "production"
         ]
       }
     }
@@ -1176,35 +1322,32 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "metal",
-          "funk"
+          "pop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "trumpet",
-          "violin",
-          "clarinet",
-          "electric guitar",
-          "bass guitar"
+          "bass guitar",
+          "piano"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "advanced"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "performance",
-          "mastering",
           "mixing"
         ]
       }
@@ -1215,31 +1358,33 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "metal",
-          "electronic",
-          "jazz",
           "ambient"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "piano"
+          "trumpet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory"
+          "mastering",
+          "mixing"
         ]
       }
     }
@@ -1249,32 +1394,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
+          "house",
           "hip hop",
-          "electronic",
-          "ambient"
+          "ambient",
+          "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "double bass"
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mastering"
+          "composition"
         ]
       }
     }
@@ -1284,34 +1432,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "rock",
-          "funk"
+          "jazz",
+          "hip hop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "double bass",
-          "clarinet",
-          "acoustic guitar"
+          "cello"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "performance",
-          "composition",
-          "mixing"
+          "production",
+          "mixing",
+          "composition"
         ]
       }
     }
@@ -1321,33 +1470,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "metal"
+          "rock",
+          "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "cello",
-          "drums",
-          "trumpet",
-          "violin",
-          "electric guitar"
+          "flute",
+          "clarinet",
+          "trumpet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "mastering"
+          "mixing"
         ]
       }
     }
@@ -1357,32 +1508,42 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "ambient"
+          "house",
+          "rock",
+          "electronic",
+          "jazz"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
+          "drums",
+          "bass guitar",
           "trumpet",
-          "violin",
-          "double bass",
-          "acoustic guitar"
+          "electric guitar",
+          "flute",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "beginner"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mastering"
+          "mastering",
+          "production",
+          "theory"
         ]
       }
     }
@@ -1392,32 +1553,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "rock",
-          "metal",
-          "ambient",
-          "hip hop"
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "clarinet",
-          "drums",
-          "piano"
+          "acoustic guitar",
+          "double bass",
+          "drums"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
+          "mastering",
+          "performance",
           "production"
         ]
       }
@@ -1428,35 +1592,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
-          "metal",
-          "jazz",
-          "funk"
+          "jazz"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "drums",
+          "trumpet",
           "acoustic guitar",
-          "trumpet"
+          "cello",
+          "flute",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "performance",
-          "mixing"
+          "mastering",
+          "production"
         ]
       }
     }
@@ -1466,36 +1632,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "jazz",
-          "hip hop"
+          "pop",
+          "ambient"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "cello",
-          "trumpet",
-          "clarinet",
-          "electric guitar",
-          "double bass"
+          "piano",
+          "acoustic guitar",
+          "violin",
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "novice"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "production"
+          "mastering",
+          "production",
+          "composition"
         ]
       }
     }
@@ -1505,31 +1673,41 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
+          "ambient",
           "electronic",
-          "ambient"
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
           "bass guitar",
-          "drums",
-          "piano"
+          "piano",
+          "flute",
+          "violin",
+          "clarinet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production"
+          "theory",
+          "mixing",
+          "composition"
         ]
       }
     }
@@ -1539,36 +1717,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "electronic",
-          "rock",
-          "ambient"
+          "hip hop",
+          "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "trumpet",
+          "drums",
+          "acoustic guitar",
+          "cello",
           "violin",
           "clarinet",
-          "bass guitar",
-          "piano"
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "composition",
-          "mixing"
+          "production"
         ]
       }
     }
@@ -1578,36 +1758,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
+          "house",
           "pop",
-          "metal",
-          "ambient",
-          "hip hop"
+          "electronic",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "drums",
-          "trumpet",
-          "bass guitar",
-          "violin",
-          "electric guitar",
-          "double bass"
+          "flute",
+          "piano"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "beginner"
+        "value": "advanced"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mastering"
+          "mastering",
+          "mixing",
+          "theory"
         ]
       }
     }
@@ -1617,33 +1799,39 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "jazz"
+          "rock",
+          "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "bass guitar",
+          "trumpet",
+          "electric guitar",
           "cello",
-          "acoustic guitar"
+          "flute",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
           "theory",
-          "mastering"
+          "mastering",
+          "performance"
         ]
       }
     }
@@ -1653,35 +1841,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "metal",
-          "jazz",
-          "hip hop"
+          "electronic",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "double bass",
-          "clarinet",
           "cello",
-          "trumpet"
+          "violin",
+          "acoustic guitar",
+          "drums"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
           "performance",
-          "mixing"
+          "composition"
         ]
       }
     }
@@ -1691,32 +1881,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "metal",
-          "ambient",
+          "jazz",
+          "rock",
+          "electronic",
           "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "violin",
-          "drums",
-          "trumpet"
+          "flute",
+          "bass guitar",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "beginner"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mixing"
+          "composition"
         ]
       }
     }
@@ -1726,32 +1921,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "metal",
+          "jazz",
+          "hip hop",
           "electronic",
           "rock"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "violin",
-          "electric guitar"
+          "bass guitar",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production"
+          "production",
+          "composition"
         ]
       }
     }
@@ -1761,33 +1961,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
           "hip hop",
-          "funk"
+          "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
           "drums",
+          "trumpet",
           "acoustic guitar",
-          "trumpet"
+          "violin",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "advanced"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "composition",
-          "mastering"
+          "performance",
+          "composition"
         ]
       }
     }
@@ -1797,30 +2002,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house"
+          "hip hop",
+          "pop",
+          "rock",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "violin",
-          "double bass"
+          "electric guitar"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "novice"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "mixing"
+          "mixing",
+          "production",
+          "performance"
         ]
       }
     }
@@ -1830,29 +2042,36 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "jazz"
+          "jazz",
+          "ambient"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "bass guitar",
-          "cello"
+          "flute",
+          "violin",
+          "clarinet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mixing"
+          "mastering"
         ]
       }
     }
@@ -1862,31 +2081,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "rock",
-          "ambient"
+          "jazz",
+          "pop",
+          "hip hop",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute"
+          "flute",
+          "trumpet",
+          "cello"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "advanced"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "composition",
-          "mixing"
+          "theory"
         ]
       }
     }
@@ -1896,33 +2121,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "jazz"
+          "hip hop",
+          "pop",
+          "rock",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
           "flute",
-          "cello",
           "clarinet",
-          "bass guitar",
-          "piano"
+          "trumpet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "mixing"
+          "theory",
+          "production"
         ]
       }
     }
@@ -1932,33 +2162,42 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
+          "house",
+          "pop",
+          "hip hop",
           "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
+          "bass guitar",
+          "piano",
           "cello",
-          "drums",
-          "trumpet",
-          "acoustic guitar"
+          "flute",
+          "violin",
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "advanced"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "mastering"
+          "mastering",
+          "mixing",
+          "theory"
         ]
       }
     }
@@ -1968,31 +2207,39 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "ambient"
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
+          "bass guitar",
+          "trumpet",
+          "piano",
           "flute",
-          "electric guitar",
-          "clarinet",
-          "acoustic guitar"
+          "violin",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mastering"
+          "mastering",
+          "mixing",
+          "composition"
         ]
       }
     }
@@ -2002,30 +2249,34 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "metal",
           "rock"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "trumpet"
+          "flute",
+          "clarinet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "composition"
+          "mastering"
         ]
       }
     }
@@ -2035,32 +2286,39 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house"
+          "house",
+          "pop",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
+          "piano",
           "electric guitar",
-          "violin",
-          "drums",
-          "trumpet"
+          "flute",
+          "clarinet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "performance",
-          "composition"
+          "mastering",
+          "performance"
         ]
       }
     }
@@ -2070,36 +2328,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "jazz",
-          "rock",
-          "ambient"
+          "house"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
+          "acoustic guitar",
+          "electric guitar",
+          "cello",
           "flute",
-          "trumpet",
-          "clarinet",
-          "bass guitar",
-          "piano"
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
           "production",
-          "theory"
+          "composition"
         ]
       }
     }
@@ -2109,32 +2368,36 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "jazz"
+          "jazz",
+          "pop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "electric guitar",
           "clarinet",
-          "acoustic guitar",
-          "piano"
+          "electric guitar",
+          "cello"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "novice"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mastering"
+          "theory",
+          "production"
         ]
       }
     }
@@ -2144,33 +2407,36 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
-          "rock"
+          "house"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "cello",
-          "violin",
-          "double bass",
-          "acoustic guitar"
+          "clarinet",
+          "trumpet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "beginner"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory"
+          "theory",
+          "mastering",
+          "composition"
         ]
       }
     }
@@ -2180,30 +2446,40 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
           "house",
-          "funk"
+          "electronic",
+          "funk",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
+          "bass guitar",
+          "trumpet",
+          "piano",
           "violin",
           "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mastering"
+          "mastering",
+          "mixing"
         ]
       }
     }
@@ -2213,32 +2489,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "jazz",
-          "funk"
+          "pop",
+          "hip hop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "electric guitar",
-          "clarinet",
-          "cello"
+          "trumpet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
+          "mastering",
           "production",
-          "mixing"
+          "composition"
         ]
       }
     }
@@ -2248,32 +2527,36 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
-          "metal",
-          "jazz",
-          "hip hop"
+          "house",
+          "ambient",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "clarinet",
+          "drums",
           "cello"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "beginner"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production"
+          "mastering",
+          "composition"
         ]
       }
     }
@@ -2283,34 +2566,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
-          "electronic"
+          "pop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
+          "drums",
+          "bass guitar",
           "trumpet",
-          "acoustic guitar",
-          "piano"
+          "electric guitar",
+          "flute",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
           "performance",
-          "mastering"
+          "composition"
         ]
       }
     }
@@ -2320,28 +2607,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "jazz"
+          "rock"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "cello"
+          "drums",
+          "bass guitar",
+          "piano",
+          "cello",
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "novice"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
+          "performance",
+          "mixing",
           "composition"
         ]
       }
@@ -2352,36 +2648,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "metal",
-          "ambient"
+          "pop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
           "flute",
-          "cello",
-          "double bass",
-          "violin",
           "bass guitar",
-          "acoustic guitar"
+          "trumpet",
+          "drums"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "performance",
-          "mastering"
+          "composition"
         ]
       }
     }
@@ -2391,30 +2686,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
+          "ambient",
+          "funk",
           "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "electric guitar",
+          "violin",
           "double bass",
-          "trumpet"
+          "cello",
+          "drums"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "beginner"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mastering"
+          "composition"
         ]
       }
     }
@@ -2424,35 +2726,33 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "electronic",
-          "funk",
-          "hip hop"
+          "rock"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "cello",
-          "clarinet",
-          "bass guitar",
-          "acoustic guitar"
+          "piano"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "advanced"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
           "mastering",
-          "mixing"
+          "production"
         ]
       }
     }
@@ -2462,34 +2762,39 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
+          "ambient",
           "pop",
-          "metal",
-          "electronic",
-          "hip hop"
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
+          "piano",
+          "acoustic guitar",
+          "trumpet",
+          "cello",
           "flute",
-          "violin",
-          "bass guitar",
-          "drums"
+          "violin"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "composition"
+          "production"
         ]
       }
     }
@@ -2499,35 +2804,39 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
+          "house",
           "pop",
-          "metal",
-          "funk"
+          "hip hop",
+          "rock"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "cello",
+          "piano",
           "trumpet",
-          "double bass",
-          "acoustic guitar"
+          "cello",
+          "flute",
+          "clarinet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "performance",
           "mixing"
         ]
       }
@@ -2538,32 +2847,33 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop"
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "violin",
-          "clarinet",
-          "piano"
+          "bass guitar"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
           "theory",
-          "mastering",
-          "mixing"
+          "composition"
         ]
       }
     }
@@ -2573,31 +2883,36 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "funk"
+          "pop",
+          "electronic",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
+          "trumpet",
           "double bass",
-          "cello",
-          "acoustic guitar",
-          "piano"
+          "cello"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "composition"
+          "performance"
         ]
       }
     }
@@ -2607,30 +2922,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "metal",
           "jazz",
-          "ambient"
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "drums"
+          "piano",
+          "trumpet",
+          "cello",
+          "violin",
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
+          "production",
           "composition"
         ]
       }
@@ -2641,36 +2963,41 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
-          "electronic",
-          "hip hop"
+          "jazz",
+          "hip hop",
+          "ambient",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "trumpet",
-          "violin",
+          "piano",
+          "acoustic guitar",
           "electric guitar",
-          "clarinet"
+          "cello",
+          "flute",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "performance",
-          "composition",
-          "mixing"
+          "theory",
+          "performance"
         ]
       }
     }
@@ -2680,30 +3007,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "electronic",
-          "funk"
+          "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "drums"
+          "violin",
+          "clarinet",
+          "electric guitar",
+          "trumpet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "mastering"
+          "production"
         ]
       }
     }
@@ -2713,30 +3045,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
-          "electronic",
-          "ambient"
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "clarinet"
+          "drums",
+          "piano",
+          "acoustic guitar",
+          "flute",
+          "clarinet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production"
+          "mixing",
+          "performance"
         ]
       }
     }
@@ -2746,32 +3086,33 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "rock"
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "bass guitar",
-          "cello",
-          "trumpet"
+          "cello"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "performance",
-          "mixing"
+          "theory",
+          "composition"
         ]
       }
     }
@@ -2781,32 +3122,41 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "metal",
+          "ambient",
           "electronic",
-          "hip hop"
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "cello"
+          "bass guitar",
+          "acoustic guitar",
+          "electric guitar",
+          "flute",
+          "clarinet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "composition",
-          "mixing"
+          "mastering",
+          "production",
+          "theory"
         ]
       }
     }
@@ -2816,31 +3166,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "rock"
+          "house"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "bass guitar",
+          "drums",
+          "piano",
           "trumpet",
-          "acoustic guitar",
-          "piano"
+          "flute",
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production"
+          "theory",
+          "mixing",
+          "composition"
         ]
       }
     }
@@ -2850,34 +3207,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house"
+          "jazz",
+          "rock",
+          "pop",
+          "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
           "flute",
-          "trumpet",
-          "violin",
-          "clarinet",
-          "electric guitar",
-          "double bass"
+          "acoustic guitar",
+          "electric guitar"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "novice"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
           "theory",
-          "composition"
+          "production"
         ]
       }
     }
@@ -2887,34 +3248,36 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "hip hop"
+          "house",
+          "hip hop",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "drums",
-          "trumpet",
           "violin",
-          "double bass",
-          "piano"
+          "clarinet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "performance",
-          "mixing"
+          "production"
         ]
       }
     }
@@ -2924,32 +3287,34 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "jazz"
+          "house"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "double bass",
-          "drums",
-          "trumpet"
+          "violin",
+          "trumpet",
+          "cello"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "performance",
-          "composition"
+          "mastering"
         ]
       }
     }
@@ -2959,33 +3324,39 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "jazz"
+          "house",
+          "electronic",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "violin",
-          "clarinet",
           "piano",
-          "trumpet"
+          "acoustic guitar",
+          "electric guitar",
+          "flute",
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "beginner"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "performance",
-          "mastering"
+          "mixing",
+          "production"
         ]
       }
     }
@@ -2995,34 +3366,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
-          "electronic",
-          "ambient",
-          "funk"
+          "jazz",
+          "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
+          "drums",
+          "cello",
           "flute",
-          "piano"
+          "violin",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "beginner"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "composition",
-          "mixing"
+          "performance"
         ]
       }
     }
@@ -3032,33 +3406,39 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "electronic",
-          "rock",
-          "ambient"
+          "pop",
+          "hip hop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
+          "piano",
+          "acoustic guitar",
           "electric guitar",
-          "bass guitar",
-          "violin"
+          "cello",
+          "flute"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "composition"
+          "theory",
+          "performance",
+          "mixing"
         ]
       }
     }
@@ -3068,29 +3448,40 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
-          "electronic"
+          "ambient",
+          "hip hop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "piano"
+          "bass guitar",
+          "electric guitar",
+          "cello",
+          "flute",
+          "violin",
+          "clarinet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production"
+          "mastering",
+          "mixing",
+          "performance"
         ]
       }
     }
@@ -3100,31 +3491,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
+          "ambient",
           "pop",
-          "rock",
-          "hip hop"
+          "hip hop",
+          "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
           "flute",
-          "cello",
-          "trumpet",
-          "clarinet",
-          "acoustic guitar"
+          "bass guitar",
+          "violin",
+          "drums"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
           "mastering"
@@ -3137,34 +3532,36 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "rock",
           "hip hop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
           "flute",
-          "drums",
-          "acoustic guitar"
+          "bass guitar",
+          "clarinet",
+          "piano"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "composition",
-          "mixing"
+          "mastering",
+          "performance"
         ]
       }
     }
@@ -3174,33 +3571,37 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "hip hop"
+          "jazz",
+          "pop",
+          "rock",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "cello",
-          "drums",
-          "bass guitar",
-          "double bass",
-          "acoustic guitar"
+          "bass guitar"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mastering"
+          "theory",
+          "production",
+          "performance"
         ]
       }
     }
@@ -3210,31 +3611,39 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "house",
-          "pop",
           "jazz",
-          "hip hop"
+          "electronic",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute"
+          "flute",
+          "clarinet",
+          "trumpet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "mastering"
+          "mastering",
+          "mixing",
+          "production"
         ]
       }
     }
@@ -3244,34 +3653,41 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "metal",
-          "rock",
-          "hip hop"
+          "house",
+          "pop",
+          "hip hop",
+          "electronic"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "bass guitar",
-          "double bass",
-          "trumpet"
+          "piano",
+          "acoustic guitar",
+          "cello",
+          "clarinet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "advanced"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
           "theory",
-          "mastering",
-          "mixing"
+          "performance",
+          "production"
         ]
       }
     }
@@ -3281,34 +3697,40 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
           "house",
-          "electronic"
+          "electronic",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "violin",
-          "double bass",
-          "electric guitar"
+          "piano",
+          "trumpet",
+          "bass guitar",
+          "electric guitar",
+          "cello",
+          "flute"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "expert"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "performance",
-          "composition",
-          "mastering"
+          "theory",
+          "mixing"
         ]
       }
     }
@@ -3318,34 +3740,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
           "jazz",
-          "metal",
-          "electronic",
-          "rock"
+          "pop",
+          "rock",
+          "funk"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
           "flute",
           "violin",
-          "clarinet",
-          "drums"
+          "acoustic guitar",
+          "trumpet"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "intermediate"
+        "value": "beginner"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "composition"
+          "mixing"
         ]
       }
     }
@@ -3355,32 +3781,35 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
           "house",
-          "funk"
+          "pop",
+          "hip hop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
           "flute",
-          "double bass",
-          "drums",
-          "acoustic guitar"
+          "clarinet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
         "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
           "mastering",
           "mixing"
         ]
@@ -3392,29 +3821,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "hip hop",
-          "rock",
-          "funk"
+          "funk",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "bass guitar"
+          "bass guitar",
+          "trumpet",
+          "acoustic guitar",
+          "electric guitar",
+          "flute"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "novice"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
+          "theory",
+          "mixing",
           "performance"
         ]
       }
@@ -3425,31 +3863,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "jazz"
+          "ambient",
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "violin"
+          "piano",
+          "trumpet",
+          "electric guitar",
+          "acoustic guitar"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "novice"
+        "value": "advanced"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
+          "production",
           "performance",
-          "mastering",
-          "mixing"
+          "composition"
         ]
       }
     }
@@ -3459,31 +3904,39 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "pop",
-          "metal",
+          "jazz",
+          "electronic",
           "rock",
-          "hip hop"
+          "metal"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "violin"
+          "trumpet",
+          "electric guitar",
+          "flute",
+          "violin",
+          "clarinet",
+          "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "beginner"
+        "value": "intermediate"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "composition",
           "mastering"
         ]
       }
@@ -3494,30 +3947,38 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
-          "rock"
+          "pop"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
-          "flute",
-          "drums"
+          "drums",
+          "trumpet",
+          "acoustic guitar",
+          "electric guitar",
+          "cello",
+          "flute"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "beginner"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "production",
-          "theory"
+          "mastering",
+          "performance"
         ]
       }
     }
@@ -3527,32 +3988,41 @@
     "attributes": {
       "genres": {
         "name": "genres",
+        "type": "multi",
         "same": true,
         "value": [
+          "house",
           "pop",
-          "jazz"
+          "hip hop",
+          "ambient"
         ]
       },
       "instruments": {
         "name": "instruments",
+        "type": "multi",
         "same": false,
         "value": [
+          "bass guitar",
+          "acoustic guitar",
+          "flute",
           "violin",
+          "clarinet",
           "double bass"
         ]
       },
       "experience": {
         "name": "experience",
+        "type": "binary",
         "same": true,
-        "value": "advanced"
+        "value": "expert"
       },
       "skills": {
         "name": "skills",
+        "type": "multi",
         "same": false,
         "value": [
-          "theory",
-          "production",
-          "mastering"
+          "mastering",
+          "production"
         ]
       }
     }
