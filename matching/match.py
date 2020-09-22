@@ -34,6 +34,13 @@ class User:
         score = total / len(self.attributes) 
         return score
 
+    def to_dict(self):
+        attributes = {name:attr.to_dict() for name, attr in self.attributes.items()}
+        return {
+            "name": self.name,
+            "attributes": attributes
+        }
+
     def __repr__(self):
         return f"User(name={self.name}, attributes={self.attributes})"
 
@@ -108,11 +115,24 @@ def compute_threshold(scores):
     mean = total / count
     return mean
 
+
+def save_users(users, path):
+    user_json = []
+    for user in users:
+        user_json.append(user.to_dict())
+
+    with open(path, "w") as f:
+        json.dump(user_json, f, indent=2, separators=(",", ": "))
+
+def save_scores(scores, path):
+    with open(path, "w") as f:
+        json.dump(scores, f, indent=2, separators=(",", ": "))
+
 if __name__ == "__main__":
     printer = pprint.PrettyPrinter()
 
-    users = generate_users("categories.json", 5, seed=1)
-    printer.pprint(users)
-
+    users = generate_users("matching/categories.json", 100, seed=1)
     scores = compute_scores(users)
-    printer.pprint(scores)
+
+    save_users(users, "matching/examples/users2.json")
+    save_scores(scores, "matching/examples/scores2.json")

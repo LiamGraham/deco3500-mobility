@@ -1,0 +1,360 @@
+[
+    {
+        "name": "user1",
+        "attributes": {
+            "genres": {
+                "name": "genres",
+                "same": true,
+                "value": [
+                    "hip hop",
+                    "ambient"
+                ]
+            },
+            "instruments": {
+                "name": "instruments",
+                "same": false,
+                "value": [
+                    "drums"
+                ]
+            },
+            "experience": {
+                "name": "experience",
+                "same": true,
+                "value": "advanced"
+            },
+            "skills": {
+                "name": "skills",
+                "same": false,
+                "value": [
+                    "mastering",
+                    "theory"
+                ]
+            }
+        }
+    },
+    {
+        "name": "user2",
+        "attributes": {
+            "genres": {
+                "name": "genres",
+                "same": true,
+                "value": [
+                    "ambient",
+                    "metal"
+                ]
+            },
+            "instruments": {
+                "name": "instruments",
+                "same": false,
+                "value": [
+                    "flute"
+                ]
+            },
+            "experience": {
+                "name": "experience",
+                "same": true,
+                "value": "advanced"
+            },
+            "skills": {
+                "name": "skills",
+                "same": false,
+                "value": [
+                    "performance",
+                    "mastering",
+                    "mixing"
+                ]
+            }
+        }
+    },
+    {
+        "name": "user3",
+        "attributes": {
+            "genres": {
+                "name": "genres",
+                "same": true,
+                "value": [
+                    "jazz",
+                    "ambient"
+                ]
+            },
+            "instruments": {
+                "name": "instruments",
+                "same": false,
+                "value": [
+                    "piano"
+                ]
+            },
+            "experience": {
+                "name": "experience",
+                "same": true,
+                "value": "beginner"
+            },
+            "skills": {
+                "name": "skills",
+                "same": false,
+                "value": [
+                    "performance",
+                    "mastering",
+                    "production"
+                ]
+            }
+        }
+    },
+    {
+        "name": "user4",
+        "attributes": {
+            "genres": {
+                "name": "genres",
+                "same": true,
+                "value": [
+                    "funk",
+                    "rock"
+                ]
+            },
+            "instruments": {
+                "name": "instruments",
+                "same": false,
+                "value": [
+                    "trumpet",
+                    "clarinet",
+                    "bass guitar",
+                    "drums",
+                    "cello"
+                ]
+            },
+            "experience": {
+                "name": "experience",
+                "same": true,
+                "value": "intermediate"
+            },
+            "skills": {
+                "name": "skills",
+                "same": false,
+                "value": [
+                    "theory"
+                ]
+            }
+        }
+    },
+    {
+        "name": "user5",
+        "attributes": {
+            "genres": {
+                "name": "genres",
+                "same": true,
+                "value": [
+                    "hip hop",
+                    "metal"
+                ]
+            },
+            "instruments": {
+                "name": "instruments",
+                "same": false,
+                "value": [
+                    "flute"
+                ]
+            },
+            "experience": {
+                "name": "experience",
+                "same": true,
+                "value": "expert"
+            },
+            "skills": {
+                "name": "skills",
+                "same": false,
+                "value": [
+                    "performance",
+                    "mixing",
+                    "composition"
+                ]
+            }
+        }
+    },
+    {
+        "name": "user6",
+        "attributes": {
+            "genres": {
+                "name": "genres",
+                "same": true,
+                "value": [
+                    "jazz"
+                ]
+            },
+            "instruments": {
+                "name": "instruments",
+                "same": false,
+                "value": [
+                    "trumpet",
+                    "acoustic guitar",
+                    "clarinet",
+                    "bass guitar",
+                    "flute",
+                    "cello"
+                ]
+            },
+            "experience": {
+                "name": "experience",
+                "same": true,
+                "value": "intermediate"
+            },
+            "skills": {
+                "name": "skills",
+                "same": false,
+                "value": [
+                    "mastering",
+                    "production",
+                    "theory"
+                ]
+            }
+        }
+    },
+    {
+        "name": "user7",
+        "attributes": {
+            "genres": {
+                "name": "genres",
+                "same": true,
+                "value": [
+                    "metal"
+                ]
+            },
+            "instruments": {
+                "name": "instruments",
+                "same": false,
+                "value": [
+                    "flute",
+                    "cello"
+                ]
+            },
+            "experience": {
+                "name": "experience",
+                "same": true,
+                "value": "advanced"
+            },
+            "skills": {
+                "name": "skills",
+                "same": false,
+                "value": [
+                    "mixing",
+                    "production",
+                    "composition"
+                ]
+            }
+        }
+    },
+    {
+        "name": "user8",
+        "attributes": {
+            "genres": {
+                "name": "genres",
+                "same": true,
+                "value": [
+                    "metal"
+                ]
+            },
+            "instruments": {
+                "name": "instruments",
+                "same": false,
+                "value": [
+                    "acoustic guitar",
+                    "clarinet",
+                    "flute",
+                    "electric guitar",
+                    "cello"
+                ]
+            },
+            "experience": {
+                "name": "experience",
+                "same": true,
+                "value": "advanced"
+            },
+            "skills": {
+                "name": "skills",
+                "same": false,
+                "value": [
+                    "performance",
+                    "mastering",
+                    "theory"
+                ]
+            }
+        }
+    },
+    {
+        "name": "user9",
+        "attributes": {
+            "genres": {
+                "name": "genres",
+                "same": true,
+                "value": [
+                    "house",
+                    "funk",
+                    "ambient"
+                ]
+            },
+            "instruments": {
+                "name": "instruments",
+                "same": false,
+                "value": [
+                    "clarinet",
+                    "bass guitar",
+                    "flute",
+                    "cello",
+                    "piano"
+                ]
+            },
+            "experience": {
+                "name": "experience",
+                "same": true,
+                "value": "advanced"
+            },
+            "skills": {
+                "name": "skills",
+                "same": false,
+                "value": [
+                    "mixing",
+                    "production",
+                    "theory"
+                ]
+            }
+        }
+    },
+    {
+        "name": "user10",
+        "attributes": {
+            "genres": {
+                "name": "genres",
+                "same": true,
+                "value": [
+                    "jazz",
+                    "pop",
+                    "hip hop",
+                    "rock"
+                ]
+            },
+            "instruments": {
+                "name": "instruments",
+                "same": false,
+                "value": [
+                    "acoustic guitar",
+                    "trumpet",
+                    "clarinet",
+                    "bass guitar",
+                    "flute"
+                ]
+            },
+            "experience": {
+                "name": "experience",
+                "same": true,
+                "value": "beginner"
+            },
+            "skills": {
+                "name": "skills",
+                "same": false,
+                "value": [
+                    "mixing",
+                    "production"
+                ]
+            }
+        }
+    }
+]

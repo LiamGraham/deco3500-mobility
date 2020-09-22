@@ -1,4 +1,5 @@
 from typing import List, Set, Any, Dict
+from collections.abc import Iterable
 
 class Attribute:
 
@@ -38,10 +39,16 @@ class Attribute:
             float: Match score value between 0 and 1
         """
         raise NotImplementedError()
-    
+
+    def to_dict(self):
+        return {
+            "name": self.name,
+            "same": self.same,
+            "value": self.value
+        }
+
     def __repr__(self):
         return f"Attribute(name={self.name}, value={self.value}, same={self.same})"
-
 
     def __str__(self):
         return self.__repr__()
@@ -101,3 +108,10 @@ class MultiAttribute(Attribute):
         
         score = count / (len(self.value) + len(other.value))
         return score  
+    
+    def to_dict(self):
+        return {
+            "name": self.name,
+            "same": self.same,
+            "value": list(self.value)
+        }
