@@ -47,7 +47,17 @@ class User:
     def __str__(self):
         return self.__repr__()
 
-def generate_users(attr_path, size, seed=None):
+def generate_users(attr_path: str, size: int, seed: bool=None) -> List[User]:
+    """Generates a list of random users of the given size. 
+
+    Args:
+        attr_path (str): Path to JSON file storing attribute information
+        size (int): Number of users to be generated
+        seed (bool, optional): Seed for random generation.
+
+    Returns:
+        List[User]: List of random users
+    """
     with open(attr_path, "r") as f:
         categories = json.load(f)
     if seed:
@@ -70,13 +80,22 @@ def generate_users(attr_path, size, seed=None):
     return users
 
 
-def load_users(user_path):
+def load_users(user_path: str) -> List[User]:
+    """Loads User objects from JSON file at the given path.
+
+    Args:
+        user_path (str): Path to user JSON file
+
+    Returns:
+        List[User]: List of loaded User objects
+    """
     with open(user_path, "r") as f:
         data = json.load(f)
     users = []
-    for user_name, values in data.items():
+    for user_data in data:
+        user_name = user_data["name"]
         attributes = {}
-        for attr_name, category in values.items():
+        for attr_name, category in user_data["attributes"].items():
             same = category["same"]
             if category["type"] == "multi":
                 value = set(category["value"])
@@ -89,7 +108,15 @@ def load_users(user_path):
     return users
 
 
-def compute_scores(users):
+def compute_scores(users) -> Dict[str, Dict[str, float]]:
+    """Returns a dictionary of match scores for each pair of users. 
+
+    Args:
+        users (List[User]): Users for which match scores will be computed
+
+    Returns:
+        Dict[str, Dict[str, float]]: Match scores for each pair of users
+    """
     scores = {user.name:{} for user in users}
     for i in range(len(users)):
         user1 = users[i]
@@ -102,7 +129,15 @@ def compute_scores(users):
     return scores
 
 
-def compute_threshold(scores):
+def compute_mean(scores: Dict[str, Dict[str, float]]) -> float:
+    """Returns the mean score of the given set of scores, ignoring duplicates.
+
+    Args:
+        scores (Dict[str, Dict[str, float]]): Scores for which mean will be calculated
+
+    Returns:
+        float: Mean score
+    """
     seen = {}
     total = count = 0
     for name1, values in scores.items():
@@ -124,15 +159,20 @@ def save_users(users, path):
     with open(path, "w") as f:
         json.dump(user_json, f, indent=2, separators=(",", ": "))
 
+
 def save_scores(scores, path):
     with open(path, "w") as f:
         json.dump(scores, f, indent=2, separators=(",", ": "))
 
+
 if __name__ == "__main__":
     printer = pprint.PrettyPrinter()
 
-    users = generate_users("matching/categories.json", 100, seed=1)
+    #users = generate_users("matching/categories.json", 10, seed=1)
+    users = load_users("matching/examples/users1.json")
     scores = compute_scores(users)
+    printer.pprint(users)
+    printer.pprint(scores)
 
-    save_users(users, "matching/examples/users2.json")
-    save_scores(scores, "matching/examples/scores2.json")
+    #save_users(users, "matching/examples/users1.json")
+    #save_scores(scores, "matching/examples/scores1.json")

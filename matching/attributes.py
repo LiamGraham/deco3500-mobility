@@ -41,11 +41,7 @@ class Attribute:
         raise NotImplementedError()
 
     def to_dict(self):
-        return {
-            "name": self.name,
-            "same": self.same,
-            "value": self.value
-        }
+        raise NotImplementedError()
 
     def __repr__(self):
         return f"Attribute(name={self.name}, value={self.value}, same={self.same})"
@@ -75,6 +71,14 @@ class BinaryAttribute(Attribute):
             float: Match score between 0 and 1
         """
         return int(self._equal(self.value == other.value))
+    
+    def to_dict(self):
+        return {
+            "name": self.name,
+            "type": "binary",
+            "same": self.same,
+            "value": self.value
+        }
 
 
 class MultiAttribute(Attribute):
@@ -112,6 +116,7 @@ class MultiAttribute(Attribute):
     def to_dict(self):
         return {
             "name": self.name,
+            "type": "multi",
             "same": self.same,
             "value": list(self.value)
         }
