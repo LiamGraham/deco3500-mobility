@@ -1,22 +1,44 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Graph from "react-graph-vis";
+import Scores from './scores1.json';
 
 // import "./styles.css";
 // need to import the vis network css in order to show tooltip
 // import "./network.css";
 
 export default function Connections() {
-  const graph = {
-    nodes: [
-      { id: 1, label: "Node 1", color: "#e04141" },
-      { id: 2, label: "Node 2", color: "#e09c41" },
-      { id: 3, label: "Node 3", color: "#e0df41" },
-      { id: 4, label: "Node 4", color: "#7be041" },
-      { id: 5, label: "Node 5", color: "#41e0c9" }
-    ],
-    edges: [{ from: 1, to: 2 }, { from: 1, to: 3 }, { from: 2, to: 4 }, { from: 2, to: 5 }]
-  };
+  const threshold = 0.8;
+  function buildGraph() {
+    const names = Object.keys(Scores);
+    console.log(names)
+
+    // write some sort of loop to convert Scores into graph
+    const nodes = [];
+    const edges = [];
+    for (let i = 0; i < names.length; i++) {
+
+      // adding nodes
+      const name = names[i]
+      const node = { id: name, label: name, color: "#e04141" }
+      nodes.push(node);
+
+      // adding node edges
+      const compatibilities = Scores[name]
+      const compatibilitiesKeys = Object.keys(compatibilities)
+
+      for (let j = 0; j < compatibilitiesKeys.length; j++) {
+        const neighbourName = compatibilitiesKeys[j];
+        const score = compatibilities[neighbourName];
+        if (score >= threshold) {
+          edges.push({ from: name, to: neighbourName})
+        }
+      }
+    }
+
+    return { nodes, edges }
+  }
+
+  const graph = buildGraph();
   
   const options = {
     layout: {
