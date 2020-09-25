@@ -6,8 +6,10 @@ import Scores from './scores1.json';
 // need to import the vis network css in order to show tooltip
 // import "./network.css";
 
+const colors = ["#e04141", "#e09c41", "#e0df41", "#7be041", "#41e0c9" ]
+const threshold = 0.7;
+
 export default function Connections() {
-  const threshold = 0.8;
   function buildGraph() {
     const names = Object.keys(Scores);
     console.log(names)
@@ -19,7 +21,8 @@ export default function Connections() {
 
       // adding nodes
       const name = names[i]
-      const node = { id: name, label: name, color: "#e04141" }
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      const node = { id: name, label: name, color: randomColor }
       nodes.push(node);
 
       // adding node edges
@@ -61,13 +64,18 @@ export default function Connections() {
   };
 
   return (
-    <Graph
-      graph={graph}
-      options={options}
-      events={events}
-      getNetwork={network => {
-        //  if you want access to vis.js network api you can set the state in a parent component using this property
-      }}
-    />
+    <>
+      <Graph
+        graph={graph}
+        options={options}
+        events={events}
+        getNetwork={network => {
+          //  if you want access to vis.js network api you can set the state in a parent component using this property
+        }}
+      />
+      <p style={{ color: 'black' }}>{`Threshold: ${threshold}`}</p>
+      <p style={{ color: 'black' }}>{`Artists: ${graph.nodes.length}`}</p>
+      <p style={{ color: 'black' }}>{`Connections: ${graph.edges.length / 2}`}</p>
+    </>
   );
 }
