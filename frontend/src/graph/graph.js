@@ -1,6 +1,10 @@
 import React from "react";
 import Graph from "react-graph-vis";
 import Scores from './scores1.json';
+import UserDisplay from '../components/userDisplay';
+import { Button, Modal } from 'semantic-ui-react';
+import { render, unstable_renderSubtreeIntoContainer } from "react-dom";
+
 
 // import "./styles.css";
 // need to import the vis network css in order to show tooltip
@@ -16,6 +20,8 @@ const images = [
 
 const colors = ["#e04141", "#e09c41", "#e0df41", "#7be041", "#41e0c9" ]
 const threshold = 0.8;
+
+let userDisplayId = null
 
 export default function Connections() {
   function buildGraph() {
@@ -52,6 +58,14 @@ export default function Connections() {
   }
 
   const graph = buildGraph();
+
+  // building a pop up image
+  // function popTrial() {
+  //   var popup = document.getElementById("myPopup");
+  //   popup.classList.toggle("show");
+  // }
+
+  // const pop = popTrial();
   
   const options = {
     layout: {
@@ -84,10 +98,28 @@ export default function Connections() {
       console.log(edges);
     },
     showPopup: (id) => {
-
+      console.log("this is a pop up for " + id);
+      userDisplayId = id
+      // userDisplay(id, true)
+      // renderUserProfile(id)   
+      // onclick = "ModalExampleShorthand()"   
+      //alert("your match is " + id);
+      // {userDisplay()}
     }
   };
 
+  // const ModalExampleShorthand = () => (
+  //   <Modal
+  //     trigger={events}
+  //     // trigger={<Button>Show Modal</Button>}
+  //     header='Reminder!'
+  //     content='Call Benjamin regarding the reports.'
+  //     actions={['Snooze', { key: 'done', content: 'Done', positive: true }]}
+  //   />
+  // )
+
+  // {userDisplay()} 
+  
   return (
     <>
       <Graph
@@ -98,6 +130,7 @@ export default function Connections() {
           //  if you want access to vis.js network api you can set the state in a parent component using this property
         }}
       />
+      <UserDisplay id={userDisplayId} open={userDisplayId !== null}/>
       {/* <p style={{ color: 'black' }}>{`Threshold: ${threshold}`}</p>
       <p style={{ color: 'black' }}>{`Artists: ${graph.nodes.length}`}</p>
       <p style={{ color: 'black' }}>{`Connections: ${graph.edges.length / 2}`}</p> */}
