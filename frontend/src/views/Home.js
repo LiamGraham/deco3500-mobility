@@ -1,17 +1,14 @@
 import React from 'react';
-// import '../App.css';
-import signUp from '../components/signUp';
-import 'semantic-ui-react'
-
+import { Header, Button } from 'semantic-ui-react'
 
 function Home() {
   return (
-    <div className="App">
+    <div>
       <header className="App-header">
-        <h1 style={{ color: 'black' }}>Home Page</h1>
-        <h2>Welcome to Artist Matcher</h2>
-         {/* {signUp()} */}
-      </header>
+        <Header size='huge'>Find your future collaborator today!</Header>
+        <Header size='medium'>Welcome to the Artist Matcher</Header>
+        <Button size='large' color='blue'>Join Now</Button>
+      </header> 
     </div>
   );
 }

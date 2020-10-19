@@ -24,11 +24,23 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-top: 1em;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header-1 {
+  background-color: white;
+  /* background-color: rgba(34,36,38,.15); */
+  /* background-color: rgb(172, 179, 192); */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding-bottom: 10em;
 }
+
 
 @keyframes App-logo-spin {
   from {
@@ -38,7 +50,3 @@
     transform: rotate(360deg);
   }
 }
-
-/* .container-fluid{
-  padding: 0;
-} */

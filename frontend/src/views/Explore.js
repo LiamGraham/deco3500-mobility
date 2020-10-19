@@ -3,21 +3,21 @@ import '../App.css';
 import Connections from '../graph/graph';
 import Preview from '../components/preview';
 import { Container, Box } from '@material-ui/core';
-import userDisplay from '../components/userDisplay';
+import { Header } from 'semantic-ui-react'
 
 function Explore() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 style={{ color: 'black' }}>Here are your matches</h1>
+        <Header size='medium'>Here are your matches</Header>
 
-        <Container maxWidth="lg">
-          <Box bgcolor="#def1f7">
+        <Container maxWidth="md">
+          <Box bgcolor="white">
+          {/* <Box bgcolor="#def1f7"> */}
             <Connections />
           </Box>
 
           <Box>
-            {/* {userDisplay()} */}
             <Preview id='user1' />
           </Box>
         </Container>

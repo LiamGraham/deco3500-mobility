@@ -5,11 +5,6 @@ import UserDisplay from '../components/userDisplay';
 import { Button, Modal } from 'semantic-ui-react';
 import { render, unstable_renderSubtreeIntoContainer } from "react-dom";
 
-
-// import "./styles.css";
-// need to import the vis network css in order to show tooltip
-// import "./network.css";
-
 const images = [
   'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
   'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU',
