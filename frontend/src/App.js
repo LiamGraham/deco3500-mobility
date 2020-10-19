@@ -1,42 +1,78 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './views/Home';
 import About from './views/About';
-import Contact from './views/Contact';
+import Collaborators from './views/Collaborators';
 import Explore from './views/Explore';
-// import Profile from './views/Profile.html';
-import Sample from './views/Sample';
+import Signup from './views/Signup';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Router>
-        <div class="container-fluid">
-          <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <ul className="navbar-nav mr-auto">
-              <li><Link to={'/'} className="nav-link"> Home </Link></li>
-              <li><Link to={'/explore'} className="nav-link">Explore</Link></li>
-              <li><Link to={'/contact'} className="nav-link">Collaborators</Link></li>
-              <li><Link to={'/about'} className="nav-link">About</Link></li>
-            </ul>
-            </nav>
-            <hr />
-            <Switch>
-                <Route exact path='/' component={Home} />
-                <Route path='/explore' component={Explore} />
-                <Route path='/contact' component={Contact} />
-                <Route path='/about' component={About} />
-            </Switch>
-          </div>
-        </div>
-        </Router>
-      </header>
-      
-    </div>
-  );
+import { Menu, Segment, Input, Button } from 'semantic-ui-react'
+
+export default class MenuExampleInvertedSecondary extends Component {
+  state = { activeItem: 'home' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    const { activeItem } = this.state
+
+    return (
+      <Segment  >
+        <Menu secondary >
+          <Menu.Item
+            as={Link} to='home'
+            name='home'
+            active={activeItem === 'home'}
+            onClick={this.handleItemClick}
+          />
+
+          <Menu.Item
+            as={Link} to='explore'
+            name='explore'
+            active={activeItem === 'explore'}
+            onClick={this.handleItemClick}
+          />
+
+          <Menu.Item
+            as={Link} to='collaborators'
+            name='collaborators'
+            active={activeItem === 'collaborators'}
+            onClick={this.handleItemClick}
+          />
+
+          <Menu.Item
+            as={Link} to='about'
+            name='about'
+            active={activeItem === 'about'}
+            onClick={this.handleItemClick}
+          />
+
+          <Menu.Menu position='right'>
+            <Menu.Item>
+              <Input icon='search' placeholder='Search...' />
+            </Menu.Item>
+          <Menu.Item>
+            <Button as='a' >
+              Log In
+            </Button>
+            <Button as={Link} to='signup' style={{ marginLeft: '0.5em' }}>
+              Sign Up
+            </Button>
+          </Menu.Item>
+        </Menu.Menu>
+
+        </Menu>
+
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/home' component={Home} />
+          <Route path='/explore' component={Explore} />
+          <Route path='/collaborators' component={Collaborators} />
+          <Route path='/about' component={About} />
+          <Route path='/signup' component={Signup} />
+
+        </Switch>
+      </Segment>
+    )
+  }
 }
-
-export default App;
