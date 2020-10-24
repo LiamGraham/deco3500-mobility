@@ -10,6 +10,10 @@ class UserDisplay extends Component {
     console.log('constructing user Display')
   }
 
+  close() {
+    this.props.close()
+  }
+
   render() {
     console.log('calling render')
 
@@ -23,6 +27,8 @@ class UserDisplay extends Component {
         header={`It's a match! ${this.props.id}`}
         content='Based on your preferences, we have matched you with this user. Do you want to collaborate?'
         actions={['No', { key: 'done', content: 'Yes', positive: true }]}
+        onClose={() => this.close()}
+        // onOpen={() => this.setOpen(true)}
       />
     </div>
   }
