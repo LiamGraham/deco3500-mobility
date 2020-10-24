@@ -41,6 +41,10 @@
   padding-bottom: 10em;
 }
 
+.graph-div {
+  border: 2px solid black
+}
+
 
 @keyframes App-logo-spin {
   from {

@@ -124,7 +124,7 @@ class Connections extends Component {
     }
 
     return (
-      <>
+      <div className='graph-div'>
         <Graph
           graph={graph}
           options={options}
@@ -137,7 +137,7 @@ class Connections extends Component {
         {/* <p style={{ color: 'black' }}>{`Threshold: ${threshold}`}</p>
         <p style={{ color: 'black' }}>{`Artists: ${graph.nodes.length}`}</p>
         <p style={{ color: 'black' }}>{`Connections: ${graph.edges.length / 2}`}</p> */}
-      </>
+      </div>
     )
   }
 }
