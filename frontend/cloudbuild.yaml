@@ -7,7 +7,7 @@ steps:
   dir: frontend
   env:
   - 'PROJECT_ID=deco3500-cadence'
-- name: 'gcr.io/deco3500-cadence/firebase-image:latest'
+- name: 'andreysenov/firebase-tools:latest'
   dir: frontend
   args: [ 'deploy', '--token', '${_FIREBASE_TOKEN}', '-f', '-P', 'deco3500-cadence', '--only', 'hosting']
 timeout: 300s
