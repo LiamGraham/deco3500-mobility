@@ -9,5 +9,5 @@ steps:
   - 'PROJECT_ID=deco3500-cadence'
 - name: 'andreysenov/firebase-tools:latest'
   dir: frontend
-  args: [ 'deploy', '--token', '${_FIREBASE_TOKEN}', '-f', '-P', 'deco3500-cadence', '--only', 'hosting']
-timeout: 300s
+  args: [ 'firebase', 'deploy', '--token', '${_FIREBASE_TOKEN}', '-f', '-P', 'deco3500-cadence', '--only', 'hosting']
+timeout: 500s
