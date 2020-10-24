@@ -1,0 +1,16 @@
+steps:
+- name: 'gcr.io/cloud-builders/npm:current'
+  args: [ 'install' ]
+  dir: frontend
+- name: 'gcr.io/cloud-builders/npm:current'
+  args: [ 'run', 'build' ]
+  dir: frontend
+  env:
+  - 'PROJECT_ID=deco3500-cadence'
+# - name: 'andreysenov/firebase-tools:latest'
+#   dir: frontend
+#   args: ['sudo', 'chown', '-R', '$USER:$(id -gn $USER)', '/builder/home/.config']
+- name: 'ddinh11/deco3500'
+  dir: frontend
+  args: [ 'firebase', 'deploy', '--token', '${_FIREBASE_TOKEN}', '-f', '-P', 'deco3500-cadence', '--only', 'hosting']
+timeout: 500s
