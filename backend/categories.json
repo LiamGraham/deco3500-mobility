@@ -1,0 +1,58 @@
+{
+  "genres": {
+    "same": true,
+    "type": "multi",
+    "values": [
+      "rock",
+      "ambient",
+      "house",
+      "pop",
+      "hip hop",
+      "jazz",
+      "funk",
+      "metal",
+      "electronic"
+    ]
+   },
+  "instruments": {
+    "same": false,
+    "type": "multi",
+    "values": [
+      "piano",
+      "electric guitar",
+      "acoustic guitar",
+      "bass guitar",
+      "double bass",
+      "violin",
+      "flute",
+      "drums",
+      "clarinet",
+      "flute",
+      "trumpet",
+      "cello"
+    ]
+   },
+  "experience": {
+    "same": true,
+    "type": "binary",
+    "values": [
+      "beginner",
+      "novice",
+      "intermediate",
+      "advanced",
+      "expert"
+    ]
+   },
+  "skills": {
+    "same": false,
+    "type": "multi",
+    "values": [
+      "performance",
+      "composition",
+      "mixing",
+      "mastering",
+      "production",
+      "theory"
+    ]
+   }
+}
