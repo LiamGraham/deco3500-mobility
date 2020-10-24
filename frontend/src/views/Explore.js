@@ -13,16 +13,6 @@ function Explore() {
         <Box bgcolor="white">
           <Connections />
         </Box>
-
-        <Container maxWidth="md">
-          <Box bgcolor="white">
-            <Connections />
-          </Box>
-
-          <Box>
-            {/* <Preview id='user1' /> */}
-          </Box>
-        </Container>
       </Container>        
     </div>
   );
