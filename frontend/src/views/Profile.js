@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image, Item, Segment, Button, Comment, Form, Header } from 'semantic-ui-react'
 
-const ItemExampleItems = () => (
+const ProfileContainer = () => (
   <div>
     <Segment>
       <Item.Group>
@@ -60,4 +60,4 @@ const ItemExampleItems = () => (
   </div>
 )
 
-export default ItemExampleItems
+export default ProfileContainer

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Form, Segment, Radio } from 'semantic-ui-react'
+import { Header, Form, Segment, Radio, Grid } from 'semantic-ui-react'
 
 const genreOptions = [
   { key: 'alternative', text: 'Alternative', value: 'alternative' },
@@ -38,7 +38,7 @@ const skillOptions = [
   { key: 'violin', text: 'Violin', value: 'violin' }
 ]
 
-class FormExampleSubcomponentControl extends Component {
+class SignupForm extends Component {
   state = {}
 
   handleChange = (e, { value }) => this.setState({ value })
@@ -46,74 +46,79 @@ class FormExampleSubcomponentControl extends Component {
   render() {
     const { value } = this.state
     return (
-      <div>
-      <Header size='medium'>Sign Up today!</Header>
-      <Segment padded>
-        
-        <Form >
-          {/* basic information */}
-          <Form.Group widths='equal'>
-            <Form.Input fluid label='Username' placeholder='User Name' />
-            <Form.Input fluid label='First Name' placeholder='First Name' />
-            <Form.Input fluid label='Last Name' placeholder='Last Name' />
-          </Form.Group>
+      <Grid textAlign='center' style={{ height: '80vh' }} verticalAlign='middle'>
+        <Grid.Column style={{ maxWidth: 600 }}>
+        <Header as='h2' color='blue' textAlign='center'>
+          Sign Up today!
+        </Header>
+        <Segment padded >
+          <Form >
+            {/* basic information */}
+            <Form.Group widths='equal'>
+              <Form.Input fluid label='Username' placeholder='User Name' />
+              <Form.Input fluid label='First Name' placeholder='First Name' />
+              <Form.Input fluid label='Last Name' placeholder='Last Name' />
+            </Form.Group>
 
-          {/* genre music  */}
-          <Form.Select
-            fluid label='What kind of music do you make?' placeholder='You can select multiple genres' fluid multiple selection options={genreOptions} />
+            {/* genre music  */}
+            <Form.Select
+              fluid label='What kind of music do you make?' placeholder='You can select multiple genres' fluid multiple selection options={genreOptions} />
 
-          {/* skills */}
-          <Form.Select
-            fluid label='What are your musical skills?' placeholder='You can select multiple skills' fluid multiple selection options={skillOptions} />
+            {/* skills */}
+            <Form.Select
+              fluid label='What are your musical skills?' placeholder='You can select multiple skills' fluid multiple selection options={skillOptions} />
 
-          {/* level of experience */}
-          <Form.Group inline>
-            <label>What is your level of experience?</label>
-            <Form.Field
-              control={Radio}
-              label='Beginner'
-              value='1'
-              checked={value === '1'}
-              onChange={this.handleChange}
-            />
-            <Form.Field
-              control={Radio}
-              label='Novice'
-              value='2'
-              checked={value === '2'}
-              onChange={this.handleChange}
-            />
-            <Form.Field
-              control={Radio}
-              label='Intermediate'
-              value='3'
-              checked={value === '3'}
-              onChange={this.handleChange}
-            />
-            <Form.Field
-              control={Radio}
-              label='Advance'
-              value='4'
-              checked={value === '4'}
-              onChange={this.handleChange}
-            />
-            <Form.Field
-              control={Radio}
-              label='Expert'
-              value='5'
-              checked={value === '5'}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
+            {/* level of experience */}
+            <Form.Field fluid label='What is your level of experience?'/>
+            <Form.Group >
+              <Form.Field
+                control={Radio}
+                label='Beginner'
+                value='1'
+                checked={value === '1'}
+                onChange={this.handleChange}
+              />
+              <Form.Field
+                control={Radio}
+                label='Novice'
+                value='2'
+                checked={value === '2'}
+                onChange={this.handleChange}
+              />
+              <Form.Field
+                control={Radio}
+                label='Intermediate'
+                value='3'
+                checked={value === '3'}
+                onChange={this.handleChange}
+              />
+              <Form.Field
+                control={Radio}
+                label='Advance'
+                value='4'
+                checked={value === '4'}
+                onChange={this.handleChange}
+              />
+              <Form.Field
+                control={Radio}
+                label='Expert'
+                value='5'
+                checked={value === '5'}
+                onChange={this.handleChange}
+              />
+            </Form.Group>
 
-          <Form.TextArea label='Bio' placeholder='Tell us more about you...' />
-          <Form.Checkbox label='I agree to the Terms and Conditions' />
-          <Form.Button>Submit</Form.Button>
-        </Form>
-      </Segment>
-      </div>
+            <Form.TextArea label='Bio' placeholder='Tell us more about you...' />
+            <Form.Checkbox label='I agree to the Terms and Conditions' />
+            <Form.Button color='green' onClick={()=>{ alert('Sign up complete!'); }}>Submit</Form.Button>
+            
+
+          </Form>
+        </Segment>
+      </Grid.Column>
+      </Grid>
     )
   }
 }
 
-export default FormExampleSubcomponentControl
+export default SignupForm

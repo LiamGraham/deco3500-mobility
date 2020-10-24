@@ -20,7 +20,7 @@ export default class MenuExampleInvertedSecondary extends Component {
 
     return (
       <div className='App-nav'> 
-        <Menu secondary >
+        <Menu secondary stackable>
           <Menu.Item as={Link} to='home'>
             <Image src='/logo.png' size='small'/>
           </Menu.Item>

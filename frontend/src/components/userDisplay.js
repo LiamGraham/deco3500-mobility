@@ -16,13 +16,9 @@ class UserDisplay extends Component {
 
   render() {
     console.log('calling render')
-
-    // return () => (<div>{style}<ModalExampleShorthand/></div>)
-    
     
     return <div>{style}
       <Modal
-        trigger={<Button>Match</Button>}
         open={this.props.open}
         header={`It's a match! ${this.props.id}`}
         content='Based on your preferences, we have matched you with this user. Do you want to collaborate?'
@@ -33,10 +29,5 @@ class UserDisplay extends Component {
     </div>
   }
 }
-
-
-// const ModalExampleShorthand = (id, open) => {
-//   console.log(id, open)
-// }
 
 export default UserDisplay
