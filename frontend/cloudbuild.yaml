@@ -12,5 +12,5 @@ steps:
 #   args: ['sudo', 'chown', '-R', '$USER:$(id -gn $USER)', '/builder/home/.config']
 - name: 'ddinh11/deco3500'
   dir: frontend
-  args: [ 'firebase', 'deploy', '--token', '${_FIREBASE_TOKEN}', '-f', '-P', 'deco3500-cadence', '--only', 'hosting']
+  args: [ 'deploy', '--token', '${_FIREBASE_TOKEN}', '-f', '-P', 'deco3500-cadence', '--only', 'hosting']
 timeout: 500s
