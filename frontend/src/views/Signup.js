@@ -51,7 +51,7 @@ class SignupForm extends Component {
         <Header as='h2' color='blue' textAlign='center'>
           Sign Up today!
         </Header>
-        <Segment padded >
+        <Segment padded stacked >
           <Form >
             {/* basic information */}
             <Form.Group widths='equal'>
@@ -109,12 +109,12 @@ class SignupForm extends Component {
             </Form.Group>
 
             <Form.TextArea label='Bio' placeholder='Tell us more about you...' />
-            <Form.Checkbox label='I agree to the Terms and Conditions' />
-            <Form.Button color='green' onClick={()=>{ alert('Sign up complete!'); }}>Submit</Form.Button>
+            <Form.Checkbox style={{ paddingTop: '2em' }} label='I agree to the Terms and Conditions' />
+            <Form.Button color='green' onClick={()=>{ alert('Sign up complete!'); }} fluid size='large'>Submit</Form.Button>
             
-
           </Form>
         </Segment>
+        
       </Grid.Column>
       </Grid>
     )
