@@ -10,7 +10,7 @@ steps:
 # - name: 'andreysenov/firebase-tools:latest'
 #   dir: frontend
 #   args: ['sudo', 'chown', '-R', '$USER:$(id -gn $USER)', '/builder/home/.config']
-- name: 'andreysenov/firebase-tools:latest'
+- name: 'ddinh11/deco3500'
   dir: frontend
-  args: [ 'sudo', 'firebase', 'deploy', '--token', '${_FIREBASE_TOKEN}', '-f', '-P', 'deco3500-cadence', '--only', 'hosting']
+  args: [ 'firebase', 'deploy', '--token', '${_FIREBASE_TOKEN}', '-f', '-P', 'deco3500-cadence', '--only', 'hosting']
 timeout: 500s
