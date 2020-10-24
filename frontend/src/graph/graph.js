@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Graph from "react-graph-vis";
 import Scores from './scores1.json';
 import UserDisplay from '../components/userDisplay';
@@ -18,8 +18,22 @@ const threshold = 0.8;
 
 let userDisplayId = null
 
-export default function Connections() {
-  function buildGraph() {
+class Connections extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      nodes: null,
+      edges: null,
+      userDisplayId: null,
+    }
+  }
+
+  componentDidMount() {
+    this.buildGraph()
+  }
+
+  buildGraph() {
     const names = Object.keys(Scores);
     console.log(names)
 
@@ -49,86 +63,83 @@ export default function Connections() {
       }
     }
 
-    return { nodes, edges }
+    console.log(nodes, edges)
+    this.setState({
+      nodes,
+      edges
+    })
   }
-
-  const graph = buildGraph();
-
-  // building a pop up image
-  // function popTrial() {
-  //   var popup = document.getElementById("myPopup");
-  //   popup.classList.toggle("show");
-  // }
-
-  // const pop = popTrial();
   
-  const options = {
-    layout: {
-      hierarchical: false
-    },
-    edges: {
-      color: "#000000"
-    },
-    physics: {
-      enabled: true
-    },
-    nodes: {
-      shape: "circularImage",
-      chosen: {
-        node: (values, id, selected, hovering) => {
-          values.value = 2;
-        }
+  render() {
+    const events = {
+      select: function(event) {
+        var { nodes, edges } = event;
+        console.log("Selected nodes:");
+        console.log(nodes);
+        console.log("Selected edges:");
+        console.log(edges);
       },
-      title: 'foo'
-    },
-    height: "750px"
-  };
-  
-  const events = {
-    select: function(event) {
-      var { nodes, edges } = event;
-      console.log("Selected nodes:");
-      console.log(nodes);
-      console.log("Selected edges:");
-      console.log(edges);
-    },
-    showPopup: (id) => {
-      console.log("this is a pop up for " + id);
-      userDisplayId = id
-      // userDisplay(id, true)
-      // renderUserProfile(id)   
-      // onclick = "ModalExampleShorthand()"   
-      //alert("your match is " + id);
-      // {userDisplay()}
+      showPopup: (id) => {
+        console.log("this issa pop up for " + id);
+        this.setState({ userDisplayId: id })
+        // userDisplay(id, true)
+        // renderUserProfile(id)   
+        // onclick = "ModalExampleShorthand()"   
+        //alert("your match is " + id);
+        // {userDisplay()}
+      }
     }
-  };
 
-  // const ModalExampleShorthand = () => (
-  //   <Modal
-  //     trigger={events}
-  //     // trigger={<Button>Show Modal</Button>}
-  //     header='Reminder!'
-  //     content='Call Benjamin regarding the reports.'
-  //     actions={['Snooze', { key: 'done', content: 'Done', positive: true }]}
-  //   />
-  // )
+    const options = {
+      layout: {
+        hierarchical: false
+      },
+      edges: {
+        color: "#000000"
+      },
+      physics: {
+        enabled: true
+      },
+      nodes: {
+        shape: "circularImage",
+        chosen: {
+          node: (values, id, selected, hovering) => {
+            values.value = 2;
+          }
+        },
+        title: 'foo'
+      },
+      height: "750px"
+    }
+    const graph = { nodes: this.state.nodes, edges: this.state.edges }
 
-  // {userDisplay()} 
+    console.log(this.state.userDisplayId)
   
-  return (
-    <>
-      <Graph
-        graph={graph}
-        options={options}
-        events={events}
-        getNetwork={network => {
-          //  if you want access to vis.js network api you can set the state in a parent component using this property
-        }}
-      />
-      <UserDisplay id={userDisplayId} open={userDisplayId !== null}/>
-      {/* <p style={{ color: 'black' }}>{`Threshold: ${threshold}`}</p>
-      <p style={{ color: 'black' }}>{`Artists: ${graph.nodes.length}`}</p>
-      <p style={{ color: 'black' }}>{`Connections: ${graph.edges.length / 2}`}</p> */}
-    </>
-  );
+    if (!this.state.nodes || !this.state.edges) {
+      return (
+        <div>
+          <p>LOADING...</p>
+        </div>
+      )
+    }
+
+    return (
+      <>
+        <Graph
+          graph={graph}
+          options={options}
+          events={events}
+          getNetwork={network => {
+            //  if you want access to vis.js network api you can set the state in a parent component using this property
+          }}
+        />
+        <UserDisplay id={this.state.userDisplayId} open={this.state.userDisplayId !== null}/>
+        {/* <p style={{ color: 'black' }}>{`Threshold: ${threshold}`}</p>
+        <p style={{ color: 'black' }}>{`Artists: ${graph.nodes.length}`}</p>
+        <p style={{ color: 'black' }}>{`Connections: ${graph.edges.length / 2}`}</p> */}
+      </>
+    )
+  }
 }
+
+export default Connections

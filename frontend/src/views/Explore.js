@@ -18,7 +18,7 @@ function Explore() {
           </Box>
 
           <Box>
-            <Preview id='user1' />
+            {/* <Preview id='user1' /> */}
           </Box>
         </Container>
 

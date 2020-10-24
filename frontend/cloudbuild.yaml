@@ -7,9 +7,6 @@ steps:
   dir: frontend
   env:
   - 'PROJECT_ID=deco3500-cadence'
-# - name: 'andreysenov/firebase-tools:latest'
-#   dir: frontend
-#   args: ['sudo', 'chown', '-R', '$USER:$(id -gn $USER)', '/builder/home/.config']
 - name: 'ddinh11/deco3500'
   dir: frontend
   args: [ 'deploy', '--token', '${_FIREBASE_TOKEN}', '-f', '-P', 'deco3500-cadence', '--only', 'hosting']
