@@ -25,6 +25,10 @@
   font-size: calc(10px + 2vmin);
 }
 
+.graph-div {
+  border: 2px solid black
+}
+
 
 @keyframes App-logo-spin {
   from {
