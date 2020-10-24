@@ -2,8 +2,21 @@ from typing import List, Set, Any, Dict
 import json
 import random
 import pprint
+from flask import Flask
+from flask_restful import Resource, Api, reqparse
+from tinydb import TinyDB, Query
 
 from attributes import Attribute, BinaryAttribute, MultiAttribute
+
+app = Flask(__name__)
+api = Api(app)
+
+parser = reqparse.RequestParser()
+parser.add_argument('task')
+
+db = TinyDB("db.json")
+profiles = db.table("profiles")
+matches = db.table("matches")
 
 class MatchError(Exception):
     pass
@@ -35,13 +48,6 @@ class User:
             total += attr.compare(other.attributes[name])
         score = total / len(self.attributes) 
         return score
-
-    def to_dict(self):
-        attributes = {name:attr.to_dict() for name, attr in self.attributes.items()}
-        return {
-            "name": self.name,
-            "attributes": attributes
-        }
 
     def __repr__(self):
         return f"User(name={self.name}, attributes={self.attributes})"
@@ -107,44 +113,27 @@ class Matcher:
             return 0
         return self.scores[user1].get(user2, 0)
 
+class Profile(Resource):
+    
+    def get(self, profile_id):
+        return {"test":"test"}
 
-class MatchNode:
+    def post(self, profile_id):
+        pass
 
-    def __init__(self, user: User, matches: List["MatchNode"]=None):
-        self.user = user
-        if matches:
-            self.matches = matches
-        else:
-            self.matches = []
+    def put(self, profile_id):
+        pass
 
-    def add_match(self, match: "MatchNode"):
-        if match not in self.matches:
-            self.matches.append(match)
+class ProfileList(Resource):
+    
+    def get(self):
+        pass
 
-    def add_matches(self, matches: List["MatchNode"]):
-        for match in matches:
-            self.add_match(match)
+class MatchList(Resource):
+    
+    def get(self, profile_id):
+        pass
 
-    def __repr__(self):
-        return f"MatchNode(user={self.user.name}, matches={[user.name for user in self.matches]})"
-
-    def __str__(self):
-        return self.__repr__()
-
-def generate_match_nodes(matcher):
-    nodes = {}
-    root = matcher.users[0]
-
-    for user in users:
-        if user not in nodes:
-            node = MatchNode(user)
-            nodes[user] = node
-        else:
-            node = nodes[user]
-
-        matches = matcher.get_matches(user)
-        node.add_matches(matches)
-    return nodes
 
 def generate_users(attr_path: str, size: int, seed: bool=None) -> List[User]:
     """Generates a list of random users of the given size. 
@@ -179,82 +168,9 @@ def generate_users(attr_path: str, size: int, seed: bool=None) -> List[User]:
     return users
 
 
-def load_users(user_path: str) -> List[User]:
-    """Loads User objects from JSON file at the given path.
+api.add_resource(ProfileList, '/profiles')
+api.add_resource(Profile, '/profiles/<string:profile_id>')
+api.add_resource(MatchList, '/profiles/<string:profile_id>/matches')
 
-    Args:
-        user_path (str): Path to user JSON file
-
-    Returns:
-        List[User]: List of loaded User objects
-    """
-    with open(user_path, "r") as f:
-        data = json.load(f)
-    users = []
-    for user_data in data:
-        user_name = user_data["name"]
-        attributes = {}
-        for attr_name, category in user_data["attributes"].items():
-            same = category["same"]
-            if category["type"] == "multi":
-                value = set(category["value"])
-                attribute = MultiAttribute(attr_name, value, same=same)
-            else:
-                value = category["value"]
-                attribute = BinaryAttribute(attr_name, value, same=same)
-            attributes[attr_name] = attribute
-        users.append(User(user_name, attributes))
-    return users
-
-
-def compute_scores(users) -> Dict[str, Dict[str, float]]:
-    """Returns a dictionary of match scores for each pair of users. 
-
-    Args:
-        users (List[User]): Users for which match scores will be computed
-
-    Returns:
-        Dict[str, Dict[str, float]]: Match scores for each pair of users
-    """
-    scores = {user.name:{} for user in users}
-    for i in range(len(users)):
-        user1 = users[i]
-        for j in range(len(users)):
-            if i == j:
-                continue
-            user2 = users[j]
-            score = user1.compare(user2)
-            scores[user1.name][user2.name] = score
-    return scores
-
-
-def save_users(users, path):
-    user_json = []
-    for user in users:
-        user_json.append(user.to_dict())
-
-    with open(path, "w") as f:
-        json.dump(user_json, f, indent=2, separators=(",", ": "))
-
-
-def save_scores(scores, path):
-    with open(path, "w") as f:
-        json.dump(scores, f, indent=2, separators=(",", ": "))
-
-
-if __name__ == "__main__":
-    printer = pprint.PrettyPrinter()
-
-    users = generate_users("matching/categories.json", 10, seed=1)
-    #users = load_users("matching/examples/users1.json")
-
-    print("Computing match scores")    
-    matcher = Matcher(users)
-    #printer.pprint(users)
-    #printer.pprint(matcher.scores)
-
-    print("Generating match nodes")
-    nodes = generate_match_nodes(matcher)
-    printer.pprint(list(nodes.values()))
-    #save_users(users, "matching/examples/users2.json")
-    #save_scores(scores, "matching/examples/scores2.json")
+if __name__ == '__main__':
+    app.run(debug=True)
