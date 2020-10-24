@@ -1,10 +1,13 @@
 steps:
 - name: 'gcr.io/cloud-builders/npm:current'
   args: [ 'install' ]
+  dir: frontend
 - name: 'gcr.io/cloud-builders/npm:current'
   args: [ 'run', 'build' ]
+  dir: frontend
   env:
   - 'PROJECT_ID=deco3500-cadence'
 - name: 'gcr.io/deco3500-cadence/firebase-image:latest'
+  dir: frontend
   args: [ 'deploy', '--token', '${_FIREBASE_TOKEN}', '-f', '-P', 'deco3500-cadence', '--only', 'hosting']
 timeout: 300s
