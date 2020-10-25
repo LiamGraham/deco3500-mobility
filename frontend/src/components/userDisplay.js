@@ -10,27 +10,24 @@ class UserDisplay extends Component {
     console.log('constructing user Display')
   }
 
+  close() {
+    this.props.close()
+  }
+
   render() {
     console.log('calling render')
-
-    // return () => (<div>{style}<ModalExampleShorthand/></div>)
-    
     
     return <div>{style}
       <Modal
-        trigger={<Button>Match</Button>}
-        // open={this.props.open}
+        open={this.props.open}
         header={`It's a match! ${this.props.id}`}
         content='Based on your preferences, we have matched you with this user. Do you want to collaborate?'
         actions={['No', { key: 'done', content: 'Yes', positive: true }]}
+        onClose={() => this.close()}
+        // onOpen={() => this.setOpen(true)}
       />
     </div>
   }
 }
-
-
-// const ModalExampleShorthand = (id, open) => {
-//   console.log(id, open)
-// }
 
 export default UserDisplay

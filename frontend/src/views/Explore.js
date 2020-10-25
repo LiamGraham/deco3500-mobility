@@ -7,23 +7,13 @@ import { Header } from 'semantic-ui-react'
 
 function Explore() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Header size='medium'>Here are your matches</Header>
-
-        <Container maxWidth="md">
-          <Box bgcolor="white">
-          {/* <Box bgcolor="#def1f7"> */}
-            <Connections />
-          </Box>
-
-          <Box>
-            <Preview id='user1' />
-          </Box>
-        </Container>
-
-        
-      </header>
+    <div className="App-container">
+      <Header size='medium'>Here are your matches</Header>
+      <Container maxWidth="md">
+        <Box bgcolor="white">
+          <Connections />
+        </Box>
+      </Container>        
     </div>
   );
 }
