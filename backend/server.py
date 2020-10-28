@@ -1,176 +1,152 @@
-from typing import List, Set, Any, Dict
-import json
-import random
-import pprint
-from flask import Flask
-from flask_restful import Resource, Api, reqparse
-from tinydb import TinyDB, Query
+from flask import Flask, request, jsonify
+from werkzeug.exceptions import InternalServerError
+import os
+from firebase_admin import credentials, firestore, initialize_app
+from flask_cors import CORS
 
-from attributes import Attribute, BinaryAttribute, MultiAttribute
+from match import Entity
+from status import StatusCode as Status
+from schema import SchemaValidator
+
+class InvalidUsage(Exception):
+
+    def __init__(self, message, status_code=Status.BAD_REQUEST):
+        super().__init__(message)
+        self.message = message
+        self.status_code = status_code
+
+    def to_dict(self):
+        return {
+            "error": self.message,
+            "status": self.status_code,
+        }
 
 app = Flask(__name__)
-api = Api(app)
+CORS(app)
+cred = credentials.Certificate('keys.json')
+default_app = initialize_app(cred)
+db = firestore.client()
+profile_collection = db.collection('profiles')
 
-parser = reqparse.RequestParser()
-parser.add_argument('task')
-
-db = TinyDB("db.json")
-profiles = db.table("profiles")
-matches = db.table("matches")
-
-class MatchError(Exception):
-    pass
-
-class User:
-
-    def __init__(self, name, attributes: Dict[str, Attribute]):
-        self.name = name
-        self.attributes = attributes
-
-    def compare(self, other: "User") -> float:
-        """
-        Returns a value (match score) corresponding to how similar the given user is
-        to this user.
-
-        Args:
-            other ([User]): User to which this user will be compared
-
-        Returns:
-            float: Match score value between 0 and 1
-        """
-        if len(self.attributes) != len(other.attributes):
-            raise ValueError("Lengths of attributes lists differ")
-        total = 0
-        for name, attr in self.attributes.items():
-            other_attr = other.attributes.get(name)
-            if not other_attr:
-                raise ValueError(f"{name} is not an attribute of the given user")
-            total += attr.compare(other.attributes[name])
-        score = total / len(self.attributes) 
-        return score
-
-    def __repr__(self):
-        return f"User(name={self.name}, attributes={self.attributes})"
-
-    def __str__(self):
-        return self.__repr__()
+validator = SchemaValidator("profile", "schema.json")
 
 
-class Matcher:
+@app.errorhandler(InvalidUsage)
+def handle_invalid_usage(error):
+    response = jsonify(error.to_dict())
+    response.status_code = error.status_code
+    return response
 
-    def __init__(self, users):
-        self.users = users
-        self.scores = {}
-        self._threshold = 0
-        self.match_all()
 
-    def match_all(self):
-        self.scores = {user:{} for user in users}
-        for i in range(len(users)):
-            user1 = users[i]
-            for j in range(len(users)):
-                if i == j:
-                    continue
-                user2 = users[j]
-                score = user1.compare(user2)
-                self.scores[user1][user2] = score
-        self._compute_threshold()
+#@app.errorhandler(InternalServerError)
+def handle_internal_error(error):
+    original = getattr(error, "original_exception", None)
+    status = Status.INTERNAL_SERVER_ERROR
+    response = {
+        "error": str(original),
+        "status": status
+    }   
+    return response, status
 
-    def _compute_threshold(self):
-        all_values = []
-        seen = set()
-        for user1, values in self.scores.items():
-            for user2, value in values.items():
-                if user2 in seen:
-                    continue
-                all_values.append(value)
-            seen.add(user1)
-        all_values.sort(reverse=True)
-        upper = all_values[:len(all_values) // 2]
-        self._threshold = upper[len(upper) // 2]
 
-    def get_matches(self, user):
-        if user not in self.scores:
-            return []
-        matches = []
-        scores = self.scores[user]
-        for candidate, score in scores.items():
-            if score > self._threshold:
-                matches.append(candidate)
-        return matches
+def encapsulate(data):
+    return {"data": data}
 
-    def get_score(self, user1: User, user2: User) -> float:
-        """Returns match score for user1 and user2 if a score exists, otherwise 0.
 
-        Args:
-            user1 (User): First user 
-            user2 (User): Second user
+def success(is_success=True, status=Status.ACCEPTED):
+    return {"success": is_success}, status
 
-        Returns:
-            float: Match score for user1 and user2 if a score exists, otherwise 0
-        """
-        if user1 not in self.scores:
-            return 0
-        return self.scores[user1].get(user2, 0)
 
-class Profile(Resource):
+def profile_exists(username: str) -> bool:
+    return profile_collection.document(username).get().exists 
+
+
+@app.route("/api/profiles", methods=["GET"])
+def get_profiles():
+    profiles = [doc.to_dict() for doc in profile_collection.stream()]
+    return encapsulate(profiles)
+
+
+@app.route("/api/profiles", methods=["POST"])
+def create_profile():
+    if not request.is_json:
+        raise InvalidUsage("Missing JSON")
+    if not validator.is_valid(request.json):
+        raise InvalidUsage("JSON structure or values are invalid")
     
-    def get(self, profile_id):
-        return {"test":"test"}
+    username = request.json["username"]
+    data = request.json
+    data["saved"] = []
+    profile_collection.document(username).set(data)
+    return success()
 
-    def post(self, profile_id):
-        pass
 
-    def put(self, profile_id):
-        pass
+@app.route("/api/profiles/<string:username>", methods=["GET"])
+def get_profile(username):
+    profile = profile_collection.document(username).get()
+    if not profile.exists:
+        raise InvalidUsage(f"Profile with username '{username}' does not exist", Status.NOT_FOUND)
+    return encapsulate(profile.to_dict())
 
-class ProfileList(Resource):
+
+@app.route("/api/profiles/<string:username>", methods=["DELETE"])
+def delete_profile(username):
+    reference = profile_collection.document(username)
+    if not reference.get().exists:
+        raise InvalidUsage(f"Profile with username '{username}' does not exist", Status.NOT_FOUND)        
+    reference.delete()
+    return success()
+
+
+@app.route("/api/profiles/<string:username>/matches", methods=["GET"])
+def get_matches(username):
+    profile = profile_collection.document(username).get()
+    if not profile.exists:
+        raise InvalidUsage(f"Profile with username '{username}' does not exist", Status.NOT_FOUND)        
+    try:
+        threshold = float(request.args.get("threshold"))
+    except (TypeError, ValueError):
+        raise InvalidUsage("Threshold is missing or invalid")
     
-    def get(self):
-        pass
+    all_profiles = [doc.to_dict() for doc in profile_collection.stream()]
 
-class MatchList(Resource):
-    
-    def get(self, profile_id):
-        pass
+    target_entity = Entity(username, profile.to_dict())
+    entities = [Entity(p["username"], p) for p in all_profiles]
+    matches = target_entity.get_matches(entities, threshold)
 
-
-def generate_users(attr_path: str, size: int, seed: bool=None) -> List[User]:
-    """Generates a list of random users of the given size. 
-
-    Args:
-        attr_path (str): Path to JSON file storing attribute information
-        size (int): Number of users to be generated
-        seed (bool, optional): Seed for random generation.
-
-    Returns:
-        List[User]: List of random users
-    """
-    with open(attr_path, "r") as f:
-        categories = json.load(f)
-    if seed:
-        random.seed(seed)
-    users = []
-    for i in range(size):
-        attributes = {}
-        for name, category in categories.items():
-            candidates = category["values"]
-            same = category["same"]
-            if category["type"] == "multi":
-                size = random.randrange(1, (len(candidates) // 2) + 1)
-                value = set(random.sample(candidates, size))
-                attribute = MultiAttribute(name, value, same=same)
-            else:
-                value = random.choice(candidates)
-                attribute = BinaryAttribute(name, value, same=same)
-            attributes[name] = attribute
-        users.append(User(f"user{i + 1}", attributes))
-    return users
+    return encapsulate(matches)
 
 
-api.add_resource(ProfileList, '/profiles')
-api.add_resource(Profile, '/profiles/<string:profile_id>')
-api.add_resource(MatchList, '/profiles/<string:profile_id>/matches')
+@app.route("/api/profiles/<string:username>/saved", methods=["GET"])
+def get_saved(username):
+    profile = profile_collection.document(username).get()
+    if not profile.exists:
+        raise InvalidUsage(f"Profile with username '{username}' does not exist", Status.NOT_FOUND)        
+    targets = profile.get("saved")
+    profiles = []
+    for target in targets:
+        profile = profile_collection.document(target).get()
+        profiles.append(profile.to_dict())
+    return encapsulate(profiles)
 
+
+@app.route("/api/profiles/<string:username>/saved", methods=["PUT"])
+def add_saved(username):
+    target = request.args.get("username")
+    if not target:
+        raise InvalidUsage("Missing 'username' argument")
+    if not profile_exists(target):
+        raise InvalidUsage(f"Profile with username '{target}' does not exist")
+    saved = profile_collection.document(username)
+    saved.update({'saved': firestore.ArrayUnion([target])})
+    return success()
+
+
+@app.route("/")
+def index():
+    return "Welcome to the Cadence API"
+
+
+port = int(os.environ.get('PORT', 8080))
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(threaded=True, host='0.0.0.0', port=port, debug=True)

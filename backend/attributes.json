@@ -1,0 +1,14 @@
+{
+  "genres": {
+    "same": true,
+    "type": "multi"
+   },
+  "experience": {
+    "same": true,
+    "type": "binary"
+   },
+  "skills": {
+    "same": false,
+    "type": "multi"
+   }
+}

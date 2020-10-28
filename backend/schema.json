@@ -1,0 +1,32 @@
+{
+    "profile": {
+        "username": {
+            "required": true,
+            "type": "string"
+        },
+        "firstName": {
+            "required": true,
+            "type": "string"
+        },
+        "lastName": {
+            "required": true,
+            "type": "string"
+        },
+        "experience": {
+            "required": true,
+            "type": "string"
+        },
+        "skills": {
+            "required": true,
+            "type": "list"
+        },
+        "genres": {
+            "required": true,
+            "type": "list"
+        },
+        "bio": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
