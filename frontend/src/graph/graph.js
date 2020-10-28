@@ -4,6 +4,8 @@ import Scores from './scores1.json';
 import UserDisplay from '../components/userDisplay';
 import { Button, Modal } from 'semantic-ui-react';
 import { render, unstable_renderSubtreeIntoContainer } from "react-dom";
+import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
+const axios = require('axios')
 
 const images = [
   'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -16,8 +18,6 @@ const images = [
 const colors = ["#e04141", "#e09c41", "#e0df41", "#7be041", "#41e0c9" ]
 const threshold = 0.8;
 
-let userDisplayId = null
-
 class Connections extends Component {
   constructor(props) {
     super(props)
@@ -25,7 +25,7 @@ class Connections extends Component {
     this.state = {
       nodes: null,
       edges: null,
-      userDisplayId: null,
+      collaborator: null,
     }
   }
 
@@ -112,9 +112,25 @@ class Connections extends Component {
         console.log("Selected edges:");
         console.log(edges);
       },
-      showPopup: (id) => {
+      showPopup: async (id) => {
         console.log("this issa pop up for " + id);
-        this.setState({ userDisplayId: id })
+        if (id === this.props.user.username) {
+          console.log('selected self')
+        } else {
+          console.log(`selected collaborator with id ${id}`)
+          let res
+          try {
+            res = await axios.get(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles/${id}`)
+            if (res) {
+              console.log(`Got collaborator user as ${res.data.data}`)
+              this.setState({ collaborator: res.data.data })
+            } else {
+              alert('Failed to get collaborator\'s details. Please try again later.')
+            }
+          } catch (error) {
+            alert('Failed to get collaborator\'s details. Please try again later.')
+          }
+        }
         // userDisplay(id, true)
         // renderUserProfile(id)   
         // onclick = "ModalExampleShorthand()"   
@@ -146,7 +162,7 @@ class Connections extends Component {
     }
     const graph = { nodes: this.state.nodes, edges: this.state.edges }
 
-    console.log(this.state.userDisplayId)
+    console.log(this.state.collaborator)
   
     if (!this.state.nodes || !this.state.edges) {
       return (
@@ -166,10 +182,7 @@ class Connections extends Component {
             //  if you want access to vis.js network api you can set the state in a parent component using this property
           }}
         />
-        <UserDisplay id={this.state.userDisplayId} open={this.state.userDisplayId !== null} close={() => { this.setState({ userDisplayId: null })}}/>
-        {/* <p style={{ color: 'black' }}>{`Threshold: ${threshold}`}</p>
-        <p style={{ color: 'black' }}>{`Artists: ${graph.nodes.length}`}</p>
-        <p style={{ color: 'black' }}>{`Connections: ${graph.edges.length / 2}`}</p> */}
+        {this.state.collaborator && <UserDisplay collaborator={this.state.collaborator} open={this.state.collaborator !== null} close={() => { this.setState({ collaborator: null })}}/>}
       </div>
     )
   }

@@ -44,8 +44,8 @@ const skillOptions = [
 class SignupForm extends Component {
   state = {
     username: null,
-    firstname: null,
-    lastname: null,
+    firstName: null,
+    lastName: null,
     genres: null,
     skills: null,
     experience: null,
@@ -58,16 +58,16 @@ class SignupForm extends Component {
   }
 
   postUser = async () => {
-    const { username, firstname, lastname, genres, skills, experience, bio } = this.state
+    const { username, firstName, lastName, genres, skills, experience, bio } = this.state
     
-    if (username && firstname && lastname && genres && skills && experience && bio) {
+    if (username && firstName && lastName && genres && skills && experience && bio) {
       let res
       try {
         res = await axios.get('https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles')
       } catch (error) {
         alert('error')
       }
-      this.props.setUser({ username, firstname, lastname, genres, skills, experience, bio })
+      this.props.setUser({ username, firstName, lastName, genres, skills, experience, bio })
       console.log(res)
     } else {
       alert('Please ensure all fields are filled')
@@ -91,8 +91,8 @@ class SignupForm extends Component {
             {/* basic information */}
             <Form.Group widths='equal'>
               <Form.Input fluid label='Username' placeholder='User Name' onChange={(e, { value }) => {this.handleChange('username', value)}}/>
-              <Form.Input fluid label='First Name' placeholder='First Name' onChange={(e, { value }) => {this.handleChange('firstname', value)}}/>
-              <Form.Input fluid label='Last Name' placeholder='Last Name' onChange={(e, { value }) => {this.handleChange('lastname', value)}}/>
+              <Form.Input fluid label='First Name' placeholder='First Name' onChange={(e, { value }) => {this.handleChange('firstName', value)}}/>
+              <Form.Input fluid label='Last Name' placeholder='Last Name' onChange={(e, { value }) => {this.handleChange('lastName', value)}}/>
             </Form.Group>
 
             {/* genre music  */}
