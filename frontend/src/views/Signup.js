@@ -63,10 +63,14 @@ class SignupForm extends Component {
     if (username && firstName && lastName && genres && skills && experience && bio) {
       let res
       try {
-        res = await axios.get('https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles')
+        res = await axios.post(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles`, {
+          username, firstName, lastName, genres, skills, experience, bio
+        })
       } catch (error) {
-        alert('error')
+        console.error(error)
+        alert(`Failed to sign up user ${username}`)
       }
+      
       this.props.setUser({ username, firstName, lastName, genres, skills, experience, bio })
       console.log(res)
     } else {
