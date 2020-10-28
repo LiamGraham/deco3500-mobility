@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Header, Form, Segment, Radio, Grid } from 'semantic-ui-react'
+import { isNullishCoalesce } from 'typescript'
+import  { Redirect } from 'react-router-dom'
+const axios = require('axios')
 
 const genreOptions = [
   { key: 'alternative', text: 'Alternative', value: 'alternative' },
@@ -39,9 +42,41 @@ const skillOptions = [
 ]
 
 class SignupForm extends Component {
-  state = {}
+  state = {
+    username: null,
+    firstname: null,
+    lastname: null,
+    genres: null,
+    skills: null,
+    experience: null,
+    bio: null
+  }
 
-  handleChange = (e, { value }) => this.setState({ value })
+  handleChange = (key, value) => {
+    console.log('setting state')
+    this.setState({ [key]: value })
+  }
+
+  postUser = async () => {
+    const { username, firstname, lastname, genres, skills, experience, bio } = this.state
+    
+    if (username && firstname && lastname && genres && skills && experience && bio) {
+      let res
+      try {
+        res = await axios.get('https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles')
+      } catch (error) {
+        alert('error')
+      }
+      this.props.setUser({ username, firstname, lastname, genres, skills, experience, bio })
+      console.log(res)
+    } else {
+      alert('Please ensure all fields are filled')
+    }
+
+    // this.props.history.push('/explore')
+    const { history } = this.props;
+    history.push("/explore")
+  }
 
   render() {
     const { value } = this.state
@@ -55,18 +90,18 @@ class SignupForm extends Component {
           <Form >
             {/* basic information */}
             <Form.Group widths='equal'>
-              <Form.Input fluid label='Username' placeholder='User Name' />
-              <Form.Input fluid label='First Name' placeholder='First Name' />
-              <Form.Input fluid label='Last Name' placeholder='Last Name' />
+              <Form.Input fluid label='Username' placeholder='User Name' onChange={(e, { value }) => {this.handleChange('username', value)}}/>
+              <Form.Input fluid label='First Name' placeholder='First Name' onChange={(e, { value }) => {this.handleChange('firstname', value)}}/>
+              <Form.Input fluid label='Last Name' placeholder='Last Name' onChange={(e, { value }) => {this.handleChange('lastname', value)}}/>
             </Form.Group>
 
             {/* genre music  */}
             <Form.Select
-              fluid label='What kind of music do you make?' placeholder='You can select multiple genres' fluid multiple selection options={genreOptions} />
+              fluid label='What kind of music do you make?' placeholder='You can select multiple genres' fluid multiple selection options={genreOptions} onChange={(e, { value }) => {this.handleChange('genres', value)}}/>
 
             {/* skills */}
             <Form.Select
-              fluid label='What are your musical skills?' placeholder='You can select multiple skills' fluid multiple selection options={skillOptions} />
+              fluid label='What are your musical skills?' placeholder='You can select multiple skills' fluid multiple selection options={skillOptions} onChange={(e, { value }) => {this.handleChange('skills', value)}}/>
 
             {/* level of experience */}
             <Form.Field fluid label='What is your level of experience?'/>
@@ -75,42 +110,42 @@ class SignupForm extends Component {
                 control={Radio}
                 label='Beginner'
                 value='1'
-                checked={value === '1'}
-                onChange={this.handleChange}
+                checked={this.state.experience === '1'}
+                onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
               <Form.Field
                 control={Radio}
                 label='Novice'
                 value='2'
-                checked={value === '2'}
-                onChange={this.handleChange}
+                checked={this.state.experience === '2'}
+                onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
               <Form.Field
                 control={Radio}
                 label='Intermediate'
                 value='3'
-                checked={value === '3'}
-                onChange={this.handleChange}
+                checked={this.state.experience === '3'}
+                onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
               <Form.Field
                 control={Radio}
                 label='Advance'
                 value='4'
-                checked={value === '4'}
-                onChange={this.handleChange}
+                checked={this.state.experience === '4'}
+                onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
               <Form.Field
                 control={Radio}
                 label='Expert'
                 value='5'
-                checked={value === '5'}
-                onChange={this.handleChange}
+                checked={this.state.experience === '5'}
+                onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
             </Form.Group>
 
-            <Form.TextArea label='Bio' placeholder='Tell us more about you...' />
+            <Form.TextArea label='Bio' placeholder='Tell us more about you...' onChange={(e, { value }) => {this.handleChange('bio', value)}}/>
             <Form.Checkbox style={{ paddingTop: '2em' }} label='I agree to the Terms and Conditions' />
-            <Form.Button color='green' onClick={()=>{ alert('Sign up complete!'); }} fluid size='large'>Submit</Form.Button>
+            <Form.Button color='green' onClick={this.postUser} fluid size='large'>Submit</Form.Button>
             
           </Form>
         </Segment>

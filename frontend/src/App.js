@@ -15,6 +15,10 @@ export default class MenuExampleInvertedSecondary extends Component {
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
+  setUser = (user) => {
+    this.setState({ user })
+  }
+
   render() {
     const { activeItem } = this.state
 
@@ -58,26 +62,37 @@ export default class MenuExampleInvertedSecondary extends Component {
               <Input icon='search' placeholder='Search...' />
             </Menu.Item>
           <Menu.Item>
-          <Button as={Link} to='login' >
-              Log In
-            </Button>
-            <Button as={Link} to='signup' style={{ marginLeft: '0.5em' }}>
-              Sign Up
-            </Button>
+          {this.state.user ? 
+            <>
+              <p>Signed in as {this.state.user.username}</p>
+              <Button onClick={() => {this.setUser(null)}} style={{ marginLeft: '0.5em' }}>
+                Sign Out
+              </Button>
+            </>
+            :
+            <>
+              <Button as={Link} to='login' >
+                Log In
+              </Button>
+              <Button as={Link} to='signup' style={{ marginLeft: '0.5em' }}>
+                Sign Up
+              </Button>
+            </> 
+          }  
           </Menu.Item>
         </Menu.Menu>
 
         </Menu>
 
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/home' component={Home} />
-          <Route path='/explore' component={Explore} />
-          <Route path='/collaborators' component={Collaborators} />
-          <Route path='/profile' component={Profile} />
-          <Route path='/about' component={About} />
-          <Route path='/login' component={Login} />
-          <Route path='/signup' component={Signup} />
+          <Route exact path='/' render={(props) => (<Home {...props} user={this.state.user} setUser={this.setUser} />)} />
+          <Route path='/home' render={(props) => (<Home {...props} user={this.state.user} setUser={this.setUser} />)} />
+          <Route path='/explore' render={(props) => (<Explore {...props} user={this.state.user} setUser={this.setUser} />)} />
+          <Route path='/collaborators' render={(props) => (<Collaborators {...props} user={this.state.user} setUser={this.setUser} />)} />
+          <Route path='/profile' render={(props) => (<Profile {...props} user={this.state.user} setUser={this.setUser} />)} />
+          <Route path='/about' render={(props) => (<About {...props} user={this.state.user} setUser={this.setUser} />)} />
+          <Route path='/login' render={(props) => (<Login {...props} user={this.state.user} setUser={this.setUser} />)} />
+          <Route path='/signup' render={(props) => (<Signup {...props} user={this.state.user} setUser={this.setUser} />)} />
 
         </Switch>
       </div>

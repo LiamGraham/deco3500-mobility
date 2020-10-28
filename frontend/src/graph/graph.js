@@ -30,7 +30,40 @@ class Connections extends Component {
   }
 
   componentDidMount() {
-    this.buildGraph()
+    this.buildGraph2()
+  }
+
+  buildGraph2() {
+    const { matches, user } = this.props
+
+    console.log(matches)
+    const nodes = [{
+      id: user.username,
+      label: user.firstName,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      image: images[Math.floor(Math.random() * images.length)]
+    }]
+    const edges = []
+
+    for (let i = 0; i < matches.length; i++) {
+
+      // adding nodes
+      const name = matches[i]
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      const randomImage = images[Math.floor(Math.random() * images.length)];
+
+      const node = { id: name, label: name, color: randomColor, image: randomImage }
+      nodes.push(node);
+
+      // adding node edges
+      edges.push({ from: name, to: this.props.user.username })
+    }
+
+    console.log(nodes, edges)
+    this.setState({
+      nodes,
+      edges
+    })
   }
 
   buildGraph() {
@@ -118,7 +151,7 @@ class Connections extends Component {
     if (!this.state.nodes || !this.state.edges) {
       return (
         <div>
-          <p>LOADING...</p>
+          <p>You have no matches yet...</p>
         </div>
       )
     }
