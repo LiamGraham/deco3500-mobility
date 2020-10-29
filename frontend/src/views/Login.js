@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 const axios = require('axios')
+const Swal = require('sweetalert2')
 
 class LoginForm extends Component {
   constructor(props) {
@@ -23,7 +24,6 @@ class LoginForm extends Component {
       res = await axios.get(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles/${username}/matches?threshold=0.5`)
     } catch (error) {
       console.error(error)
-      alert(`Failed to get matches for ${username}`)
     }
     console.log('got matches', res)
     return res.data.data
@@ -46,14 +46,29 @@ class LoginForm extends Component {
           this.props.history.push('/explore')
         } else {
           this.setState({ loading: false })
-          alert('Failed to sign in. Please check the username is correct or try again later.')
+          Swal.fire({
+            title: 'Login failed',
+            text: 'Failed to sign in. Please check the username is correct or try again later.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          })
         }
       } catch (error) {
         this.setState({ loading: false })
-        alert('Failed to sign in. Please check the username is correct or try again later.')
+        Swal.fire({
+          title: 'Login failed',
+          text: 'Failed to sign in. Please check the username is correct or try again later.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        })
       }
     } else {
-      alert('Please enter a username')
+      Swal.fire({
+        title: 'Login failed',
+        text: 'Please enter a username',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
       this.setState({ loading: false })
     }
   }

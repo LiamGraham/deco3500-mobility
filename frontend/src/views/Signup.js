@@ -3,6 +3,7 @@ import { Header, Form, Segment, Radio, Grid } from 'semantic-ui-react'
 import { isNullishCoalesce } from 'typescript'
 import  { Redirect } from 'react-router-dom'
 const axios = require('axios')
+const Swal = require('sweetalert2')
 
 const genreOptions = [
   { key: 'alternative', text: 'Alternative', value: 'alternative' },
@@ -66,7 +67,12 @@ class SignupForm extends Component {
       res = await axios.get(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles/${username}/matches?threshold=0.5`)
     } catch (error) {
       console.error(error)
-      alert(`Failed to get matches for ${username}`)
+      Swal.fire({
+        title: `Failed to get matches for ${username}`,
+        text: 'Sorry, we encountered an error when retrieving your matches, please try again later.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
     }
     return res.data.data
   }
@@ -84,7 +90,12 @@ class SignupForm extends Component {
       } catch (error) {
         console.error(error)
         this.setState({ loading: false })
-        alert(`Failed to sign up user ${username}`)
+        Swal.fire({
+          title: 'Signup failed',
+          text: `Failed to sign up user ${username}`,
+          icon: 'error',
+          confirmButtonText: 'OK'
+        })
       }
       
       const matches = await this.getMatches(username)
@@ -93,7 +104,13 @@ class SignupForm extends Component {
       console.log(res)
     } else {
       this.setState({ loading: false })
-      alert('Please ensure all fields are filled')
+      Swal.fire({
+        title: 'Signup failed',
+        text: `Please ensure all fields are filled`,
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
+      return
     }
 
     // this.props.history.push('/explore')
