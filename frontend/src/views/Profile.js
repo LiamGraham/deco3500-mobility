@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Item, Segment, Button, Comment, Form, Header, List } from 'semantic-ui-react'
+import { Grid, Item, Segment, Button, Comment, Form, Header, Icon, Image } from 'semantic-ui-react'
 
 import ProfileDisplay from '../components/profileDisplay'
 
@@ -8,6 +8,10 @@ class ProfileContainer extends Component {
     super(props)
   }
 
+  capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }  
+
   render() {
     const { user } = this.props
     
@@ -15,8 +19,30 @@ class ProfileContainer extends Component {
       return <div>
 
         <ProfileDisplay user={user} isSelf={true} />
-
-
+        <Grid columns>
+        <Grid.Column width={8}>
+        <Header as='h1' attached='top'>
+          Follow my work! 
+        </Header>
+        
+        <Segment attached>
+          <div>
+            <Button color='facebook'>
+              <Icon name='facebook' /> Facebook
+            </Button>
+            <Button color='twitter'>
+              <Icon name='twitter' /> Twitter
+            </Button>
+            <Button color='instagram'>
+              <Icon name='instagram' /> Instagram
+            </Button>
+            <Button color='youtube'>
+              <Icon name='youtube' /> YouTube
+            </Button>
+          </div>
+        </Segment>
+        </Grid.Column>
+        </Grid>
 
         {/* comment section */}
         {/* <Segment>

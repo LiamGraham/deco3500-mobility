@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { Component } from 'react'
-import { Button, Modal, Item, Segment } from 'semantic-ui-react'
+import { Button, Modal, Header, Segment, Grid } from 'semantic-ui-react'
 import Swal from 'sweetalert2'
 import ProfileDisplay from '../components/profileDisplay'
 
@@ -31,16 +31,15 @@ class UserDisplay extends Component {
         open={this.props.open}
         header={`Would you like to collaborate with ${collaborator.firstName}?`}
         content={
-          <div>
-            {/* <Header size='medium'>Please log in to view your matches!</Header>    */}
-            <h2>Based on your preferences, we have matched you with {collaborator.firstName}. Do you want to collaborate?</h2>
+          <Segment padded>
+            <Header as='h3' textAlign='center'>Based on your preferences, we have matched you with {collaborator.firstName}. Do you want to collaborate?</Header>
 
             {this.props.collaborator ? 
               <ProfileDisplay user={this.props.collaborator} isSelf={false} />
               :
               <p>Loading...</p>
             }
-          </div>
+          </Segment> 
         }
         actions={['No', { key: 'done', content: 'Yes', positive: true, onClick: async () => {
           let res
