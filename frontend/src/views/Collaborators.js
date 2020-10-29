@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { Component } from 'react'
-import { Grid, Segment, Header } from 'semantic-ui-react'
+import { Grid, Button, Segment, Header } from 'semantic-ui-react'
 import Swal from 'sweetalert2'
+import ProfileDisplay from '../components/profileDisplay'
 
 class GridExampleStretched extends Component {
   constructor(props) {
@@ -50,15 +51,18 @@ class GridExampleStretched extends Component {
       <Grid.Row stretched>
         <Grid.Column>
           <div>
-            <Header as='h2' attached='top'>
-              Your Collaborators
-            </Header>
-            <Segment attached>
-              Stuff 
-            </Segment>
+            <div>
+              <Header as='h2' attached='top'>
+                Your Collaborators
+              </Header>
+              <Button onClick={this.getSavedCollaborators}>Reload</Button>
+            </div>
+            {this.state.collaborators && this.state.collaborators.map((collaborator) => {
+              return <ProfileDisplay user={collaborator} isSelf={false} />
+            })}
           </div>
         </Grid.Column>
-
+{/* 
         <Grid.Column width={4}>
           <div>
             <Header as='h2' attached='top'>
@@ -71,7 +75,7 @@ class GridExampleStretched extends Component {
             <Segment>2</Segment>
             <Segment>3</Segment>
           </div>
-        </Grid.Column>
+        </Grid.Column> */}
         
       </Grid.Row>
     </Grid>
