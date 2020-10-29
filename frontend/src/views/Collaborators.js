@@ -47,6 +47,11 @@ class GridExampleStretched extends Component {
         <Header size='medium'>Retrieving collaborators...</Header>      
       </div>
     }
+    if (!this.props.user) {
+      return <div className="App-container">
+        <Header size='medium'>Please log in to view your collaborations!</Header>   
+      </div>
+    }
     return <Grid columns='equal'>
       <Grid.Row stretched>
         <Grid.Column>

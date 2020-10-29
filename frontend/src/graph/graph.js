@@ -29,20 +29,49 @@ class Connections extends Component {
       nodes: null,
       edges: null,
       collaborator: null,
+      displayedSecondDegree: false,
     }
   }
 
   componentDidMount() {
     this.buildGraph2()
   }
+  
+  getRandomImage = (i) => {
+    if (!i) {
+      return images[Math.floor(Math.random() * images.length)]
+    }
+    return images[(i+1)%images.length]
+  }
 
-  buildGraph2() {
+  getRandomColour = () => {
+    return colors[Math.floor(Math.random() * colors.length)]
+  }
+
+  displaySecondDegreeConnections = () => {
+    if (this.state.displayedSecondDegree) {
+      return
+    }
+    this.setState({ displayedSecondDegree: true })
+    this.buildGraph2(true)
+  }
+
+  shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  buildGraph2(displaySecondDegreeConnections) {
     const { user } = this.props
     const matches = user.matches
 
     const nodes = [{
+      size: 50,
       id: user.username,
-      label: user.firstName,
+      label: `${user.firstName} (you)`,
       color: colors[Math.floor(Math.random() * colors.length)],
       image: images[0]
     }]
@@ -52,14 +81,51 @@ class Connections extends Component {
 
       // adding nodes
       const name = matches[i]
-      const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      const randomImage = images[(i+1)%images.length];
+      const randomColor = this.getRandomColour();
+      const randomImage = this.getRandomImage(i);
 
       const node = { id: name, label: name, color: randomColor, image: randomImage }
       nodes.push(node);
 
       // adding node edges
       edges.push({ from: name, to: this.props.user.username })
+    }
+
+
+    if (displaySecondDegreeConnections) {
+      const newlyAdded = []
+      console.log('user.matchesOfMatches', user.matchesOfMatches)
+      const pairs = []
+      user.matchesOfMatches.map((obj) => {
+        obj.value.forEach((match) => {
+          pairs.push({ key: obj.key, value: match })
+        })
+      })
+
+      const shuffled = this.shuffle(pairs)
+
+      shuffled.forEach((element) => {
+        const { key, value } = element
+        if (nodes.some(obj => obj.id === value)) {
+          console.log(`${value} already in nodes`)
+        } else {
+          console.log(`${value} not in nodes. adding.`)
+          newlyAdded.push(value)
+          nodes.push({ id: value, label: value, color: this.getRandomColour(), image: this.getRandomImage() })
+          edges.push({ from: key, to: value })
+        }
+      })
+
+
+      // user.matchesOfMatches.forEach((element) => {
+      //   const { key, value } = element
+      //   console.log(newlyAdded)
+      //   newlyAdded.forEach((newlyAddedId) => {
+      //     if (value.includes(newlyAddedId)) {
+      //       // edges.push({ from: key, to: newlyAddedId })
+      //     }
+      //   })
+      // })
     }
 
     console.log(nodes, edges)
@@ -177,6 +243,7 @@ class Connections extends Component {
 
     return (
       <div className='graph-div'>
+        <Button onClick={this.displaySecondDegreeConnections} >Display second degree connections</Button>
         <Graph
           graph={graph}
           options={options}

@@ -64,7 +64,7 @@ class SignupForm extends Component {
     }
     let res
     try {
-      res = await axios.get(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles/${username}/matches?threshold=0.5`)
+      res = await axios.get(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles/${username}/matches?threshold=0.6`)
     } catch (error) {
       console.error(error)
       Swal.fire({
@@ -74,7 +74,7 @@ class SignupForm extends Component {
         confirmButtonText: 'OK'
       })
     }
-    return res.data.data
+    return { key: username, value: res.data.data }
   }
 
   postUser = async () => {
@@ -98,9 +98,15 @@ class SignupForm extends Component {
         })
       }
       
-      const matches = await this.getMatches(username)
+      const matches = (await this.getMatches(username)).value
+      const promises = []
+      matches.forEach((match) => {
+        promises.push(this.getMatches(match))
+      })
+      const matchesOfMatches = await Promise.all(promises)
+      
       this.setState({ loading: false })
-      this.props.setUser({ username, firstName, lastName, genres, skills, experience, bio, matches })
+      this.props.setUser({ username, firstName, lastName, genres, skills, experience, bio, matches, matchesOfMatches })
       console.log(res)
     } else {
       this.setState({ loading: false })

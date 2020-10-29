@@ -7,10 +7,6 @@ import { Header } from 'semantic-ui-react'
 const axios = require('axios')
 
 class Explore extends Component {
-  setThreshold = () => {
-
-  }
-
   render() {
     if (this.props.user) {
       if (this.props.user.matches) {
@@ -18,7 +14,6 @@ class Explore extends Component {
           <div className="App-container">
             <Header size='medium'>Hi {this.props.user.firstName}! Here are your matches.</Header>
             <Header size='small'>You can click on another musicians picture to get to know them better.</Header>
-            <Button active={true} >More users</Button>
             <Container maxWidth="md">
               <Box bgcolor="white">
                 <Connections user={this.props.user} />

@@ -21,12 +21,12 @@ class LoginForm extends Component {
     }
     let res
     try {
-      res = await axios.get(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles/${username}/matches?threshold=0.5`)
+      res = await axios.get(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles/${username}/matches?threshold=0.6`)
     } catch (error) {
       console.error(error)
     }
     console.log('got matches', res)
-    return res.data.data
+    return { key: username, value: res.data.data }
   }
 
   loginUser = async () => {
@@ -37,8 +37,16 @@ class LoginForm extends Component {
       try {
         res = await axios.get(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles/${username}`)
         if (res) {
-          const matches = await this.getMatches(username)
-          const user = { matches, ...res.data.data}
+          const matches = (await this.getMatches(username)).value
+          const promises = []
+          matches.forEach((match) => {
+            promises.push(this.getMatches(match))
+          })
+          const matchesOfMatches = await Promise.all(promises)
+          console.log('matches',matches)
+          console.log('matchesOfMatches',matchesOfMatches)
+
+          const user = { matches, ...res.data.data, matchesOfMatches}
           console.log(`Setting user as`)
           console.log(user)
           this.props.setUser(user)
@@ -55,6 +63,7 @@ class LoginForm extends Component {
         }
       } catch (error) {
         this.setState({ loading: false })
+        console.error(error)
         Swal.fire({
           title: 'Login failed',
           text: 'Failed to sign in. Please check the username is correct or try again later.',
