@@ -3,6 +3,7 @@ import { Header, Form, Segment, Radio, Grid } from 'semantic-ui-react'
 import { isNullishCoalesce } from 'typescript'
 import  { Redirect } from 'react-router-dom'
 const axios = require('axios')
+const Swal = require('sweetalert2')
 
 const genreOptions = [
   { key: 'alternative', text: 'Alternative', value: 'alternative' },
@@ -57,8 +58,28 @@ class SignupForm extends Component {
     this.setState({ [key]: value })
   }
 
+  getMatches = async (username) => {
+    if (!username) {
+      return null
+    }
+    let res
+    try {
+      res = await axios.get(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles/${username}/matches?threshold=0.5`)
+    } catch (error) {
+      console.error(error)
+      Swal.fire({
+        title: `Failed to get matches for ${username}`,
+        text: 'Sorry, we encountered an error when retrieving your matches, please try again later.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
+    }
+    return res.data.data
+  }
+
   postUser = async () => {
     const { username, firstName, lastName, genres, skills, experience, bio } = this.state
+    this.setState({ loading: true })
     
     if (username && firstName && lastName && genres && skills && experience && bio) {
       let res
@@ -68,13 +89,28 @@ class SignupForm extends Component {
         })
       } catch (error) {
         console.error(error)
-        alert(`Failed to sign up user ${username}`)
+        this.setState({ loading: false })
+        Swal.fire({
+          title: 'Signup failed',
+          text: `Failed to sign up user ${username}`,
+          icon: 'error',
+          confirmButtonText: 'OK'
+        })
       }
       
-      this.props.setUser({ username, firstName, lastName, genres, skills, experience, bio })
+      const matches = await this.getMatches(username)
+      this.setState({ loading: false })
+      this.props.setUser({ username, firstName, lastName, genres, skills, experience, bio, matches })
       console.log(res)
     } else {
-      alert('Please ensure all fields are filled')
+      this.setState({ loading: false })
+      Swal.fire({
+        title: 'Signup failed',
+        text: `Please ensure all fields are filled`,
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
+      return
     }
 
     // this.props.history.push('/explore')
@@ -113,43 +149,43 @@ class SignupForm extends Component {
               <Form.Field
                 control={Radio}
                 label='Beginner'
-                value='1'
-                checked={this.state.experience === '1'}
+                value='beginner'
+                checked={this.state.experience === 'beginner'}
                 onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
               <Form.Field
                 control={Radio}
                 label='Novice'
-                value='2'
-                checked={this.state.experience === '2'}
+                value='novice'
+                checked={this.state.experience === 'novice'}
                 onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
               <Form.Field
                 control={Radio}
                 label='Intermediate'
-                value='3'
-                checked={this.state.experience === '3'}
+                value='intermediate'
+                checked={this.state.experience === 'intermediate'}
                 onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
               <Form.Field
                 control={Radio}
                 label='Advance'
-                value='4'
-                checked={this.state.experience === '4'}
+                value='advance'
+                checked={this.state.experience === 'advance'}
                 onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
               <Form.Field
                 control={Radio}
                 label='Expert'
-                value='5'
-                checked={this.state.experience === '5'}
+                value='expert'
+                checked={this.state.experience === 'expert'}
                 onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
             </Form.Group>
 
             <Form.TextArea label='Bio' placeholder='Tell us more about you...' onChange={(e, { value }) => {this.handleChange('bio', value)}}/>
             <Form.Checkbox style={{ paddingTop: '2em' }} label='I agree to the Terms and Conditions' />
-            <Form.Button color='green' onClick={this.postUser} fluid size='large'>Submit</Form.Button>
+            <Form.Button color='green' onClick={this.postUser} fluid size='large' loading={this.state.loading}>Submit</Form.Button>
             
           </Form>
         </Segment>

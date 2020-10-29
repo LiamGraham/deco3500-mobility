@@ -15,8 +15,18 @@ export default class MenuExampleInvertedSecondary extends Component {
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
+  componentDidMount = () => {
+    const user = localStorage.getItem('user')
+    if (user) {
+      console.log('found user, setting...')
+      this.setUser(JSON.parse(user))
+    }
+  }
+
   setUser = (user) => {
+    console.log('setting user state', user)
     this.setState({ user })
+    window.localStorage.setItem('user', JSON.stringify(user))
   }
 
   render() {

@@ -37,9 +37,9 @@ class Connections extends Component {
   }
 
   buildGraph2() {
-    const { matches, user } = this.props
+    const { user } = this.props
+    const matches = user.matches
 
-    console.log(matches)
     const nodes = [{
       id: user.username,
       label: user.firstName,
