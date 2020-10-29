@@ -57,6 +57,20 @@ class SignupForm extends Component {
     this.setState({ [key]: value })
   }
 
+  getMatches = async (username) => {
+    if (!username) {
+      return null
+    }
+    let res
+    try {
+      res = await axios.get(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles/${username}/matches?threshold=0.5`)
+    } catch (error) {
+      console.error(error)
+      alert(`Failed to get matches for ${username}`)
+    }
+    return res.data.data
+  }
+
   postUser = async () => {
     const { username, firstName, lastName, genres, skills, experience, bio } = this.state
     
@@ -71,7 +85,8 @@ class SignupForm extends Component {
         alert(`Failed to sign up user ${username}`)
       }
       
-      this.props.setUser({ username, firstName, lastName, genres, skills, experience, bio })
+      const matches = await this.getMatches(username)
+      this.props.setUser({ username, firstName, lastName, genres, skills, experience, bio, matches })
       console.log(res)
     } else {
       alert('Please ensure all fields are filled')

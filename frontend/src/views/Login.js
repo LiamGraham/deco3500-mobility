@@ -14,24 +14,47 @@ class LoginForm extends Component {
     this.setState({ [key]: value })
   }
 
+  getMatches = async (username) => {
+    if (!username) {
+      return null
+    }
+    let res
+    try {
+      res = await axios.get(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles/${username}/matches?threshold=0.5`)
+    } catch (error) {
+      console.error(error)
+      alert(`Failed to get matches for ${username}`)
+    }
+    console.log('got matches', res)
+    return res.data.data
+  }
+
   loginUser = async () => {
     const { username } = this.state
     let res
+    this.setState({ loading: true })
     if (username) {
       try {
         res = await axios.get(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles/${username}`)
         if (res) {
-          console.log(`Setting user as ${res.data.data}`)
-          this.props.setUser(res.data.data)
+          const matches = await this.getMatches(username)
+          const user = { matches, ...res.data.data}
+          console.log(`Setting user as`)
+          console.log(user)
+          this.props.setUser(user)
+          this.setState({ loading: false })
+          this.props.history.push('/explore')
         } else {
+          this.setState({ loading: false })
           alert('Failed to sign in. Please check the username is correct or try again later.')
         }
       } catch (error) {
+        this.setState({ loading: false })
         alert('Failed to sign in. Please check the username is correct or try again later.')
       }
-      this.props.history.push('/explore')
     } else {
       alert('Please enter a username')
+      this.setState({ loading: false })
     }
   }
 
@@ -45,7 +68,7 @@ class LoginForm extends Component {
           <Segment stacked>
             <Form.Input fluid icon='user' iconPosition='left' placeholder='Username' onChange={(e, { value }) => {this.handleChange('username', value)}} />
             
-            <Button color='blue' fluid size='large' onClick={this.loginUser}>
+            <Button color='blue' fluid size='large' onClick={this.loginUser} loading={this.state.loading}>
               Login
             </Button>
           </Segment>
