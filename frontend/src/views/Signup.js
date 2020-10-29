@@ -73,6 +73,7 @@ class SignupForm extends Component {
 
   postUser = async () => {
     const { username, firstName, lastName, genres, skills, experience, bio } = this.state
+    this.setState({ loading: true })
     
     if (username && firstName && lastName && genres && skills && experience && bio) {
       let res
@@ -82,13 +83,16 @@ class SignupForm extends Component {
         })
       } catch (error) {
         console.error(error)
+        this.setState({ loading: false })
         alert(`Failed to sign up user ${username}`)
       }
       
       const matches = await this.getMatches(username)
+      this.setState({ loading: false })
       this.props.setUser({ username, firstName, lastName, genres, skills, experience, bio, matches })
       console.log(res)
     } else {
+      this.setState({ loading: false })
       alert('Please ensure all fields are filled')
     }
 
@@ -128,43 +132,43 @@ class SignupForm extends Component {
               <Form.Field
                 control={Radio}
                 label='Beginner'
-                value='1'
-                checked={this.state.experience === '1'}
+                value='beginner'
+                checked={this.state.experience === 'beginner'}
                 onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
               <Form.Field
                 control={Radio}
                 label='Novice'
-                value='2'
-                checked={this.state.experience === '2'}
+                value='novice'
+                checked={this.state.experience === 'novice'}
                 onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
               <Form.Field
                 control={Radio}
                 label='Intermediate'
-                value='3'
-                checked={this.state.experience === '3'}
+                value='intermediate'
+                checked={this.state.experience === 'intermediate'}
                 onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
               <Form.Field
                 control={Radio}
                 label='Advance'
-                value='4'
-                checked={this.state.experience === '4'}
+                value='advance'
+                checked={this.state.experience === 'advance'}
                 onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
               <Form.Field
                 control={Radio}
                 label='Expert'
-                value='5'
-                checked={this.state.experience === '5'}
+                value='expert'
+                checked={this.state.experience === 'expert'}
                 onChange={(e, { value }) => {this.handleChange('experience', value)}}
               />
             </Form.Group>
 
             <Form.TextArea label='Bio' placeholder='Tell us more about you...' onChange={(e, { value }) => {this.handleChange('bio', value)}}/>
             <Form.Checkbox style={{ paddingTop: '2em' }} label='I agree to the Terms and Conditions' />
-            <Form.Button color='green' onClick={this.postUser} fluid size='large'>Submit</Form.Button>
+            <Form.Button color='green' onClick={this.postUser} fluid size='large' loading={this.state.loading}>Submit</Form.Button>
             
           </Form>
         </Segment>
