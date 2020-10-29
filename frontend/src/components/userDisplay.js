@@ -1,5 +1,8 @@
+import axios from 'axios'
 import React, { Component } from 'react'
 import { Button, Modal, Item, Segment } from 'semantic-ui-react'
+import Swal from 'sweetalert2'
+import ProfileDisplay from '../components/profileDisplay'
 
 const style = <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css'/>
 
@@ -16,7 +19,7 @@ class UserDisplay extends Component {
 
   render() {
     console.log('calling render')
-    const { collaborator } = this.props
+    const { collaborator, user } = this.props
 
     if (!collaborator) {
       return null
@@ -33,25 +36,32 @@ class UserDisplay extends Component {
             <h2>Based on your preferences, we have matched you with {collaborator.firstName}. Do you want to collaborate?</h2>
 
             {this.props.collaborator ? 
-              <Segment>
-                <Item.Group>
-                  <Item>
-                    <Item.Image size='tiny' src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' />
-
-                    <Item.Content>
-                      <Item.Header as='a'>{collaborator.firstName}</Item.Header>
-                      <Item.Meta>Musician</Item.Meta>
-                      <Item.Description>{collaborator.bio}</Item.Description>
-                    </Item.Content>
-                  </Item>
-                </Item.Group>
-              </Segment>
+              <ProfileDisplay user={this.props.collaborator} isSelf={false} />
               :
               <p>Loading...</p>
             }
           </div>
         }
-        actions={['No', { key: 'done', content: 'Yes', positive: true }]}
+        actions={['No', { key: 'done', content: 'Yes', positive: true, onClick: async () => {
+          let res
+          try {
+            res = await axios.put(`https://cadence-ycbhlxrlga-uc.a.run.app/api/profiles/${user.username}/saved?username=${collaborator.username}`, { username: collaborator.username })
+            Swal.fire({
+              title: `Added ${collaborator.firstName} as a collaborator`,
+              text: `You have added ${collaborator.firstName} as a collaborator. Go to your collaborators page to start talking to them!`,
+              icon: 'success',
+              confirmButtonText: 'OK'
+            })
+          } catch (error) {
+            Swal.fire({
+              title: `Failed to connect with ${collaborator.firstName}`,
+              text: `Sorry, we encountered an error when connecting with ${collaborator.firstName}, please try again later.`,
+              icon: 'error',
+              confirmButtonText: 'OK'
+            })
+          }
+          
+        }}]}
         onClose={() => this.close()}
         // onOpen={() => this.setOpen(true)}
       />

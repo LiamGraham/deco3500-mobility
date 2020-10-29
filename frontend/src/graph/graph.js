@@ -185,7 +185,7 @@ class Connections extends Component {
             //  if you want access to vis.js network api you can set the state in a parent component using this property
           }}
         />
-        {this.state.collaborator && <UserDisplay collaborator={this.state.collaborator} open={this.state.collaborator !== null} close={() => { this.setState({ collaborator: null })}}/>}
+        {this.state.collaborator && <UserDisplay user={this.props.user} collaborator={this.state.collaborator} open={this.state.collaborator !== null} close={() => { this.setState({ collaborator: null })}}/>}
       </div>
     )
   }

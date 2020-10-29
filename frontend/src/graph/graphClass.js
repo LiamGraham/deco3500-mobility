@@ -140,7 +140,7 @@ class Connections extends Component {
             //  if you want access to vis.js network api you can set the state in a parent component using this property
           }}
         />
-        <UserDisplay id={userDisplayId} open={userDisplayId !== null}/>
+        <UserDisplay user={this.props.user} id={userDisplayId} open={userDisplayId !== null}/>
         {/* <p style={{ color: 'black' }}>{`Threshold: ${threshold}`}</p>
         <p style={{ color: 'black' }}>{`Artists: ${graph.nodes.length}`}</p>
         <p style={{ color: 'black' }}>{`Connections: ${graph.edges.length / 2}`}</p> */}
