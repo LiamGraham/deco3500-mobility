@@ -229,7 +229,7 @@ class Connections extends Component {
         },
         title: 'foo'
       },
-      height: "750px"
+      height: "750px",
     }
     const graph = { nodes: this.state.nodes, edges: this.state.edges }
 

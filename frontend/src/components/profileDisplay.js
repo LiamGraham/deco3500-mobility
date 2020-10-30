@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Item, Segment, Button, Comment, Form, Header, List, Image } from 'semantic-ui-react'
+import { Grid, Item, Segment, Button, Divider, Form, Header, List, Image, Icon } from 'semantic-ui-react'
 
 const images = [
   'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -16,7 +16,12 @@ const images = [
 
 const soundCloudLinks = [
   "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&amp;",
-  "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/138234&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+  "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/138234&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
+  "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2050462&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
+  "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/43118&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
+  "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/75&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+  
+    
 ]
 
 // var index = 0;
@@ -37,7 +42,7 @@ class ProfileDisplay extends Component {
 
   render() {
     const { user, isSelf, image } = this.props
-      return <Grid columns='equal'>
+      return <div><Grid columns='equal'>
             {/* my profile */}
            <Grid.Column>
               <Header as='h1' attached='top'>
@@ -102,6 +107,26 @@ class ProfileDisplay extends Component {
                   </Grid.Row>
                 </Grid>
               </Segment> 
+              <Header as='h1' attached='top'>
+                {isSelf ? 'My socials' : `Follow ${user.firstName}'s socials!`}
+              </Header>
+
+              <Segment attached>
+                <div>
+                  <Button color='facebook'>
+                    <Icon name='facebook' /> Facebook
+                  </Button>
+                  <Button color='twitter'>
+                    <Icon name='twitter' /> Twitter
+                  </Button>
+                  <Button color='instagram'>
+                    <Icon name='instagram' /> Instagram
+                  </Button>
+                  <Button color='youtube'>
+                    <Icon name='youtube' /> YouTube
+                  </Button>
+                </div>
+              </Segment>
           </Grid.Column>
 
           {/* my creations */}
@@ -121,6 +146,8 @@ class ProfileDisplay extends Component {
               </Segment>
           </Grid.Column>
       </Grid>
+      <Divider/>
+      </div>
   }
 }
 

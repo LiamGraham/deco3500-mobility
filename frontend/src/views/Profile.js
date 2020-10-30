@@ -19,30 +19,6 @@ class ProfileContainer extends Component {
       return <div>
 
         <ProfileDisplay user={user} isSelf={true} />
-        <Grid columns>
-        <Grid.Column width={8}>
-        <Header as='h1' attached='top'>
-          Follow my work! 
-        </Header>
-        
-        <Segment attached>
-          <div>
-            <Button color='facebook'>
-              <Icon name='facebook' /> Facebook
-            </Button>
-            <Button color='twitter'>
-              <Icon name='twitter' /> Twitter
-            </Button>
-            <Button color='instagram'>
-              <Icon name='instagram' /> Instagram
-            </Button>
-            <Button color='youtube'>
-              <Icon name='youtube' /> YouTube
-            </Button>
-          </div>
-        </Segment>
-        </Grid.Column>
-        </Grid>
 
         {/* comment section */}
         {/* <Segment>
