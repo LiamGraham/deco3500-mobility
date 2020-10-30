@@ -13,6 +13,15 @@ const images = [
   'https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5c76b7d331358e35dd2773a9%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D0%26cropX2%3D4401%26cropY1%3D0%26cropY2%3D4401',
   'https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5babb7f1a7ea4342a948b79a%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D748%26cropX2%3D3075%26cropY1%3D1753%26cropY2%3D4082'
 ]
+
+const soundCloudLinks = [
+  "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&amp;",
+  "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/138234&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+]
+
+
+
+
 // var index = 0;
 // index = Math.floor(Math.random() * images.length);
 function capitalizeFirstLetter(string) {
@@ -20,6 +29,10 @@ function capitalizeFirstLetter(string) {
 } 
 
 class ProfileDisplay extends Component {
+
+  getRandomSoundCloudLink() {
+    return soundCloudLinks[Math.floor(Math.random() * soundCloudLinks.length)]
+  }
 
   render() {
     const { user, isSelf } = this.props
@@ -97,11 +110,11 @@ class ProfileDisplay extends Component {
 
               <Segment attached>
                 <iframe width="100%" height="166" scrolling="no" frameborder="yes" allow="autoplay" 
-                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&amp;">
+                  src={this.getRandomSoundCloudLink()}>
                 </iframe>
 
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" 
-                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/138234&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                  src={this.getRandomSoundCloudLink()}>
                 </iframe>
               </Segment>
           </Grid.Column>
