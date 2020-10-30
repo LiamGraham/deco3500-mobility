@@ -31,8 +31,12 @@ class ProfileDisplay extends Component {
     return soundCloudLinks[Math.floor(Math.random() * soundCloudLinks.length)]
   }
 
+  getRandomImage = () => {
+    return images[Math.floor(Math.random() * images.length)]
+  }
+
   render() {
-    const { user, isSelf } = this.props
+    const { user, isSelf, image } = this.props
       return <Grid columns='equal'>
             {/* my profile */}
            <Grid.Column>
@@ -45,7 +49,7 @@ class ProfileDisplay extends Component {
                   <Grid.Row verticalAlign='middle'>
                     <Grid.Column width={3}>
                       {/* <Header>{this.images(index)}</Header> */}
-                      <Image size='small' src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' />
+                      <Image size='small' src={image ? image : this.getRandomImage()} />
                     </Grid.Column>
                       
                     <Grid.Column>

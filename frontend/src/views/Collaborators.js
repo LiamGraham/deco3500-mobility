@@ -52,6 +52,11 @@ class GridExampleStretched extends Component {
         <Header size='medium'>Please log in to view your collaborations!</Header>   
       </div>
     }
+    if (!this.state.collaborators) {
+      return <div className="App-container">
+        <Header size='medium'>Looks like you haven't started any collaborations yet. Head to the explore page to collaborate with another artist!</Header>   
+      </div>
+    }
     return <Grid columns='equal'>
       <Grid.Row stretched>
         <Grid.Column>
