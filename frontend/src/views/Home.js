@@ -20,7 +20,7 @@ function Home() {
     <div>
       <div className="App-container">
         <Header size='huge'>Find your future collaborator today!</Header>
-        <Header size='medium'>Welcome to the Artist Matcher</Header>
+        <Header size='medium'>Welcome to the Cadence</Header>
         <Button size='large' color='blue' as={Link} to='signup'>Join Now</Button>
       </div>
       <Segment style={{ padding: '8em 0em' }} vertical>
