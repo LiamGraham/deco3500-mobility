@@ -96,7 +96,7 @@ class ProfileDisplay extends Component {
                         <List.Item>
                           <List.Icon name='like' />
                             <List.Content>
-                              <List.Header>{isSelf ? 'My Skills' : `${user.firstName}'s Interests`}</List.Header>
+                              <List.Header>{isSelf ? 'My Skills' : `${user.firstName}'s Skills`}</List.Header>
                               {user.skills.map((element) => {
                                 return <List.Description>{capitalizeFirstLetter(element)} </List.Description> 
                               })}
