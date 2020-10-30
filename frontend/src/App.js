@@ -59,18 +59,11 @@ export default class MenuExampleInvertedSecondary extends Component {
             active={activeItem === 'profile'}
             onClick={this.handleItemClick}
           />
-          
-          <Menu.Item
-            as={Link} to='about'
-            name='about'
-            active={activeItem === 'about'}
-            onClick={this.handleItemClick}
-          />
 
           <Menu.Menu position='right'>
-            <Menu.Item>
+            {/* <Menu.Item>
               <Input icon='search' placeholder='Search...' />
-            </Menu.Item>
+            </Menu.Item> */}
           <Menu.Item>
           {this.state.user ? 
             <>
@@ -100,7 +93,7 @@ export default class MenuExampleInvertedSecondary extends Component {
           <Route path='/explore' render={(props) => (<Explore {...props} user={this.state.user} setUser={this.setUser} />)} />
           <Route path='/collaborators' render={(props) => (<Collaborators {...props} user={this.state.user} setUser={this.setUser} />)} />
           <Route path='/profile' render={(props) => (<Profile {...props} user={this.state.user} setUser={this.setUser} />)} />
-          <Route path='/about' render={(props) => (<About {...props} user={this.state.user} setUser={this.setUser} />)} />
+          {/* <Route path='/about' render={(props) => (<About {...props} user={this.state.user} setUser={this.setUser} />)} /> */}
           <Route path='/login' render={(props) => (<Login {...props} user={this.state.user} setUser={this.setUser} />)} />
           <Route path='/signup' render={(props) => (<Signup {...props} user={this.state.user} setUser={this.setUser} />)} />
 
