@@ -3,6 +3,9 @@ import React, { Component } from 'react'
 import { Grid, Button, Segment, Header } from 'semantic-ui-react'
 import Swal from 'sweetalert2'
 import ProfileDisplay from '../components/profileDisplay'
+import { Widget } from 'react-chat-widget';
+
+import 'react-chat-widget/lib/styles.css';
 
 class GridExampleStretched extends Component {
   constructor(props) {
@@ -57,38 +60,47 @@ class GridExampleStretched extends Component {
         <Header size='medium'>Looks like you haven't started any collaborations yet. Head to the explore page to collaborate with another artist!</Header>   
       </div>
     }
-    return <Grid columns='equal'>
-      <Grid.Row stretched>
-        <Grid.Column>
-          <div>
+    return <div>
+      <Grid columns='equal'>
+        <Grid.Row stretched>
+          <Grid.Column>
+            <div>
+              <div>
+                <Header as='h2' attached='top'>
+                  Your Collaborators
+                </Header>
+                <Button onClick={this.getSavedCollaborators}>Reload</Button>
+              </div>
+              {this.state.collaborators && this.state.collaborators.map((collaborator) => {
+                return <ProfileDisplay user={collaborator} isSelf={false} />
+              })}
+            </div>
+          </Grid.Column>
+  {/* 
+          <Grid.Column width={4}>
             <div>
               <Header as='h2' attached='top'>
-                Your Collaborators
+                Future Saved Collaborators
               </Header>
-              <Button onClick={this.getSavedCollaborators}>Reload</Button>
+              <Segment attached>
+                Stuff 
+              </Segment>
+              <Segment>1</Segment>
+              <Segment>2</Segment>
+              <Segment>3</Segment>
             </div>
-            {this.state.collaborators && this.state.collaborators.map((collaborator) => {
-              return <ProfileDisplay user={collaborator} isSelf={false} />
-            })}
-          </div>
-        </Grid.Column>
-{/* 
-        <Grid.Column width={4}>
-          <div>
-            <Header as='h2' attached='top'>
-              Future Saved Collaborators
-            </Header>
-            <Segment attached>
-              Stuff 
-            </Segment>
-            <Segment>1</Segment>
-            <Segment>2</Segment>
-            <Segment>3</Segment>
-          </div>
-        </Grid.Column> */}
-        
-      </Grid.Row>
-    </Grid>
+          </Grid.Column> */}
+          
+        </Grid.Row>
+      </Grid>
+      <Widget
+        handleNewUserMessage={() => { console.log ('message sent')}}
+        title="Chat to your connections"
+        subtitle="Tell a cat joke. Or just say hi!"
+        open={true}
+      />
+      
+    </div>
   }
 }
 

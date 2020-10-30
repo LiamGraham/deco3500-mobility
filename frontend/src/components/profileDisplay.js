@@ -44,6 +44,7 @@ class ProfileDisplay extends Component {
                 {isSelf ? 'My Profile' : `${user.firstName}'s Profile`}
               </Header>
               <Segment attached>
+                
                 {/* user pic/bio section */}
                 <Grid columns={2}>
                   <Grid.Row verticalAlign='middle'>
