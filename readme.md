@@ -20,6 +20,24 @@ The [deployed website](http://deco3500-cadence.web.app/) along with [the api doc
 
 # Cadence Frontend
 
+## File structure
+
+- src
+    - components: contains main components for building the app
+    - views: contains the pages in the website, which use components
+    - graph: contains widgets used for displaying the explore graph
+    - App.js/index.js: the top level component containing the entire website. index.js renders App.js
+    - App.css/index.css: top level css files for styling
+- public: contains files such as images, and txt files for displaying on the website
+    - index.html: the websites main index file
+- cloudbuild.yaml
+    - steps for automatic deployment
+- firebase.json/.firebase.rc: config files for connecting to deployment
+- package.json/package-lock.json: project dependencies
+- README.md: frontend readme details
+- node_modules: generated after running ```npm install```
+- build: production build files generated after running ```npm run build```
+
 ## Available Scripts
 
 In the project directory, you can run:
