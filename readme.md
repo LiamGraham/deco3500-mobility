@@ -6,6 +6,14 @@ Cadence is a novel musical collaboration platform which intelligently guides use
 
 This repository contains the frontend and backend directory folders for each of the respective files for the prototype.
 
+## Promotional Materials
+
+
+- [Poster](https://www.canva.com/design/DAEMBloeVyw/OnVFUB8ca1JDlBuCv1Uj5Q/view?utm_content=DAEMBloeVyw&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu&fbclid=IwAR3_EmjDwod2meQRNlFci95wYqs9yk1NJieP-gagTUwReax-J9lE6VW8W7g)
+
+- [Brochure](https://www.canva.com/design/DAEMCUlYrnA/WJHziKiL11qQAJd_5rCIeQ/view?utm_content=DAEMCUlYrnA&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu&fbclid=IwAR2eGDIM7wvZ4Svg-OUXoLJigGFYhqqmR6Q2tFMJgLZbmcShVgt7wDYqRHY#2#)
+
+
 ## Prototype Website
 
 Automatic deployments have been set up, so whenever you push to master branch it will automatically deploy to [production](https://deco3500-cadence.web.app).
