@@ -6,7 +6,7 @@ Cadence is a novel musical collaboration platform which intelligently guides use
 
 This repository contains the frontend and backend directory folders for each of the respective files for the prototype.
 
-## Deployed website
+## Prototype Website
 
 Automatic deployments have been set up, so whenever you push to master branch it will automatically deploy to [production](https://deco3500-cadence.web.app).
 
@@ -54,15 +54,6 @@ Alternatively you can manually deploy with
 2. ```firebase deploy```
 
 # Cadence Backend API
-
-## Deployment instructions
-
-Automatic deployments have been set up, so whenever you push to master branch it will automatically deploy to [production](https://deco3500-cadence.web.app).
-
-Alternatively you can manually deploy with
-
-1. ```npm run build```
-2. ```firebase deploy```
 
 ## `GET` /api/profiles
 
@@ -291,3 +282,11 @@ None
     ]
 }
 ```
+
+## Deployment
+
+The [deployed website](http://deco3500-cadence.web.app/) and [API](https://cadence-ycbhlxrlga-uc.a.run.app/) are hosted on Firebase. 
+
+## API
+
+The API documentation is available in the backend README.md. 
