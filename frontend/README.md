@@ -1,18 +1,12 @@
-# Music artist matching
-
-## TODO
-
-- Make a navigation bar
-- Make user sign ups
-    - registration page
-    - login page
-    - profile page
-- Make the graph look pretty
-- Click a user to see their profile preview
+# Cadence Frontend
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Installs the project dependencies into a folder called node_modules and updates the package-lock.json file.
 
 ### `npm start`
 
@@ -34,4 +28,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### Deployment
 
-We will most likely use firebase
+Automatic deployments have been set up, so whenever you push to master branch it will automatically deploy to [production](https://deco3500-cadence.web.app).
+
+Alternatively you can manually deploy with
+
+1. ```npm run build```
+2. ```firebase deploy```
