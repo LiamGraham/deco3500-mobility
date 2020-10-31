@@ -55,6 +55,14 @@ Alternatively you can manually deploy with
 
 # Cadence Backend API
 
+The Cadence API is implemented using:
+
+- Flask 
+- Flask CORS
+- Firestore
+
+server.py implements each of the endpoints of the API using Flask. match.py implements to computation of the match scores, in combination with attributes.py. 
+
 ## `GET` /api/profiles
 
 Returns all profiles.
