@@ -6,8 +6,12 @@ Cadence is a novel musical collaboration platform which intelligently guides use
 
 This repository contains the frontend and backend directory folders for each of the respective files for the prototype.
 
-## Deployed website
+## Prototype Website
 
-The [deployed website](http://deco3500-cadence.web.app/) along with [the api documentation](https://www.notion.so/Cadence-API-Documentation-d4b7c3722dc346c68ac99edd8ffb0870) and [api base url](https://cadence-ycbhlxrlga-uc.a.run.app/) are hosted on Firebase and notion respectively.
+The [deployed website](http://deco3500-cadence.web.app/) and [API](https://cadence-ycbhlxrlga-uc.a.run.app/) are hosted on Firebase. 
 
-## Refer to the readme's in the frontend and backend repositories for more details
+## Deployment
+
+## API
+
+The API documentation is available in the backend README.md. 
